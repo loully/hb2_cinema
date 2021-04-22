@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+
+/*
+Background color find on : https://uigradients.com/#MegaTron
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #C6FFDD;
+    /* Basic color */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+form {
+    padding: 20px;
+}
+
+
+/****************
+*  Blocks
+*****************/
+
+.app-main {
+    width: 70vw;
+    background-color: white;
+    padding: 40px;
+    margin: auto;
+}
+
+.app__form {
+    margin: 20px;
+}
+
+
+/****************
+* Elements
+*****************/
+
+.app__title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/** Elements form **/
+
+
+/* Ordered list of questions
+* elements containing question + responses
+*/
+
+.app__form>ol>li {
+    margin: 30px 0 20px 0;
+}
+
+
+/*elements containing only the responses*/
+
+.app-form__response {
+    padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+/* buttons*/
+
+.app__button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.app__button>input {
+    font-weight: 700;
+    padding: 10px 20px 10px 20px;
+    background-color: #00A79B;
+    /*shadow*/
+    -moz-box-shadow: 0px 4px 8px 0px #009991;
+    -webkit-box-shadow: 0px 4px 8px 0px #009991;
+    -o-box-shadow: 0px 4px 8px 0px #009991;
+    box-shadow: 0px 4px 8px 0px #009991;
+    /* border radius*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+
+/*****************
+* Modifiers
+******************/
