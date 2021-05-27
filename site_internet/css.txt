@@ -1,0 +1,30 @@
+
+display block "par default";
+display flex  "propreite flex box" changer ala place de flex box
+flex-direction: row | row-reverse | column | column-reverse ******  (choisir ligne au cilone directionrow column)
+justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly***** (positionement espacement axe principale)
+align items  : flex-start | flex-end | center | baseline| stretch *****  (positionement espacement axe secndaire)
+align-self   : flex-start | flex-end | center | baseline | stretch  |  auto ****** (positionement espacement dun seule element axe secndaire du secondaire)
+align-content: flex-start | flex-end | center  | stretch| space-between | space-around
+
+flex wrap
+
+
+justify-content — contrôle l'alignement de tous les objets sur l'axe principal.
+align-items — contrôle l'alignement de tous les objets sur l'axe secondaire
+*******************************************************************************************
+flex-start: le bord de la marge de départ croisé des éléments est placé sur la ligne de départ croisé
+flex-end: le bord de la marge transversale des éléments est placé sur la ligne transversale
+center: les éléments sont centrés sur l'axe transversal
+baseline: les éléments sont alignés tels que leurs lignes de base s'alignent
+stretch( par défaut ): étirer pour remplir le conteneur (toujours respecter min-width / max-width)
+
+*********************************************************
+En très court : align-items gère l'alignement des éléments sur l'axe secondaire
+ (justify-content sur l'axe principal), alors que align-content gère l'espacement des éléments 
+ sur l'axe secondaire.
+*********************************************************************
+
+align-self — contrôle l'alignement d'un objet flexible donné le long de l'axe secondaire.
+align-content — contrôle l'espace entre les lignes flexibles sur l'axe secondaire.
+.

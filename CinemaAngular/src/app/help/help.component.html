@@ -1,0 +1,181 @@
+<div class="container">
+    <section>
+        <!-- Section related to Account informations-->
+        <article>
+            <h2>Votre Compte</h2>
+            <div>
+                <h3>Comment réinitialiser ou modifier mon mot de passe ?<span id="js-dots20">...</span></h3>
+                <div id="js-more20" class="app-more">
+                    <p>
+                        Si vous avez oublié votre mot de passe, il vous suffit, sur la page de connexion au compte HB2 Cinéma, de cliquer sur "Mot de passe oublié".
+                    </p>
+                    <p>
+                        Vous recevrez alors un email à l’adresse mail associée à votre compte contenant un lien sur lequel il vous faudra cliquer pour saisir votre nouveau mot de passe.
+                    </p>
+                    <p>
+                        Si vous souhaitez réinitialiser votre mot de passe, vous pouvez également vous rendre dans votre espace personnel, rubrique Infos personnelles > Mon mot de passe.
+                    </p>
+                    <p>
+                        Saisissez ensuite votre mot de passe ainsi que le nouveau mot de passe souhaité, puis cliquez ensuite sur « Mettre à jour ».
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore20" (click)="onClickForDisplay('js-dots20', 'js-more20', 'js-btnDisplayMore20')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Comment modifier mes coordonnées personnelles dans mon espace personnel ?<span id="js-dots21">...</span></h3>
+                <div id="js-more21" class="app-more">
+                    <p>
+                        En accédant à la rubrique "Infos personnelles", vous pouvez modifier :
+                    </p>
+                    <ul>
+                        <li>votre civilité, nom et prénom</li>
+                        <li>votre adresse postale</li>
+                    </ul>
+                    <div>
+                        Concernant la modification de votre date de naissance :
+                        <p>
+                            Pour des raisons de sécurité, vous ne pouvez procéder au changement de votre date de naissance directement depuis votre espace personnel.
+                        </p>
+                        <p>
+                            Afin de procéder à la modification de cette information, nous vous invitons à remplir le formulaire en cliquant sur « Nous contacter » et en joignant les informations suivantes :
+                        </p>
+                        <ul>
+                            <li>date de naissance correcte</li>
+                            <li>copie d'une pièce d'identité et en cours de validité</li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="js-btnDisplayMore21" (click)="onClickForDisplay('js-dots21', 'js-more21', 'js-btnDisplayMore21')">Voir la réponse</button>
+            </div>
+        </article>
+        <!-- Section related to reservation-->
+        <article>
+            <h2>Réservation En Ligne</h2>
+            <div>
+                <h3>Comment réserver en ligne sans compte utilisateur ?<span id="js-dots1">...</span></h3>
+                <div id="js-more1" class="app-more">
+                    <p>
+                        Vous ne pouvez pas réserver en ligne sans compte utilisateur.
+                    </p>
+                    <p>
+                        Si vous voulez profiter de la réservation en ligne, nous vous invitons à vous inscrire en accédant à la page "S'identifier".
+                        <!--<a href="s_identifier.htlm">S'identifier</a>-->
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore1" (click)="onClickForDisplay('js-dots1', 'js-more1', 'js-btnDisplayMore1')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Comment réserver en ligne ?<span id="js-dots2">...</span></h3>
+                <div id="js-more2" class="app-more">
+                    <p>Pour réserver en ligne :</p>
+                    <ul>
+                        <li>Il faut être connecté sur votre compte utilisateur.</li>
+                        <li>Sélectionnez le film et la séance de votre choix.<span>Vous serez ensuite redirigé(e) vers la page des tarifs.</span></li>
+                        <li>Finalisez votre commande et procédez au paiement.</li>
+                        <li>Une fois votre commande validée, une page de confirmation contenant le récapitulatif de votre commande et le e-billet s’affiche. Vous recevrez également votre e-billet par e-mail correspondant à l’ensemble des places réservées
+                            dans votre commande.
+                        </li>
+                    </ul>
+                    <p>Profitez de votre séance :</p>
+                    <ul>
+                        <li>Rendez-vous dans votre cinéma 10 minutes avant le début de la séance.</li>
+                        <li>Présentez-vous au point de contrôle.</li>
+                        <li>Présentez le e-billet de votre réservation.</li>
+                    </ul>
+                </div>
+                <button id="js-btnDisplayMore2" (click)="onClickForDisplay('js-dots2', 'js-more2', 'js-btnDisplayMore2')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Fermetures exceptionnelles : comment être remboursé ?<span id="js-dots3">...</span></h3>
+                <div id="js-more3" class="app-more">
+                    <p>
+                        Votre cinéma a fait l'objet d'une fermeture exceptionnelle et/ou votre séance a été annulée, HB2 Cinéma va procéder au remboursement de votre réservation.
+                    </p>
+                    <p>
+                        Les réservations en lignes effectuées au moyen d'une carte bleue sont automatiquement remboursées dans un délai de 48 à 72 heures.
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore3" (click)="onClickForDisplay('js-dots3', 'js-more3', 'js-btnDisplayMore3')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Comment annuler une réservation faite en ligne ?<span id="js-dots4">...</span></h3>
+                <div id="js-more4" class="app-more">
+                    <p>
+                        L'annulation de commande est possible et gratuite jusqu'à 15 minutes avant le début de la séance.
+                    </p>
+                    <p>
+                        L'annulation de la commande annulera automatiquement tous les billets constituant la commande.
+                    </p>
+                    <p>
+                        Lorsque vous validez votre réservation, un email de confirmation de commande vous est envoyé, dans lequel se trouve un lien vous permettant d'annuler votre réservation.
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore4" (click)="onClickForDisplay('js-dots4', 'js-more4', 'js-btnDisplayMore4')">Voir la réponse</button>
+            </div>
+        </article>
+        <!-- Section related to cinema information-->
+        <article>
+            <h2>Expérience En Cinéma</h2>
+            <div>
+                <h3>Qu'est-ce que la technologie 3D ?<span id="js-dots10">...</span></h3>
+                <div id="js-more10" class="app-more">
+                    <p>
+                        La technologie 3D plonge les spectateurs au cœur du film, en stimulant le sens de la vue.
+                    </p>
+                    <p>
+                        La salle 3D est équipée de haute technologie permettant la transmission d'images en trois dimensions (hauteur, largeur et profondeur).
+                    </p>
+                    <p>
+                        Le spectateur porte des lunettes polarisantes afin de profiter au mieux de cette technologie.
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore10" (click)="onClickForDisplay('js-dots10', 'js-more10', 'js-btnDisplayMore10')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Qu'est-ce que la technologie 4D ?<span id="js-dots11">...</span></h3>
+                <div id="js-more11" class="app-more">
+                    <p>
+                        La technologie 4D plonge les spectateurs au cœur du film, tous leurs sens sont stimulés.
+                    </p>
+                    <p>
+                        La salle 4D est équipée de haute technologie associant les mouvements des sièges à des effets sensoriels spéciaux tels que le vent, la pluie, l’orage, le brouillard, la neige, la fumée, les odeurs et la lumière en parfaite synchronisation avec les actions
+                        du film à l’écran.
+                    </p>
+                    <p>
+                        Chaque fauteuil est capable de créer des mouvements fluides et dynamiques au plus proche des actions du film grâce à une combinaison, à degrés variables, de trois mouvements : soulèvement, oscillation et basculement avec, en plus, des effets de vibration
+                        et chatouillement. L’animation est spécialement chorégraphiée conjointement à l’action qui se tient à l’écran.
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore11" (click)="onClickForDisplay('js-dots11', 'js-more11', 'js-btnDisplayMore11')">Voir la réponse</button>
+            </div>
+            <div>
+                <h3>Qu'est-ce que la technologie Dolby Cinema ?<span id="js-dots12">...</span></h3>
+                <div id="js-more12" class="app-more">
+                    <p>
+                        Dolby Cinema propose une expérience de cinéma unique. Elle associe les technologies d’image et de son les plus spectaculaires avec un design recherché pour faire de chaque séance un événement inoubliable.
+                    </p>
+                    <p>
+                        Grâce à Dolby Vision, l’histoire prend vie sous vos yeux. Les films présentés avec Dolby Vision se parent d’une brillance extraordinaire, d’un contraste incomparable et de couleurs fascinantes.
+                    </p>
+                    <p>
+                        Le système son Dolby Atmos vous transporte au cœur de l’action avec des sons incroyablement réalistes qui voyagent dans la salle et vous enveloppent.
+                    </p>
+                    <p>
+                        Associées au design recherché du cinéma, conçues pour réduire les nuisances visuelles et l’offrir une vue optimale depuis chaque siège de la salle, ces technologies s’unissent pour vous plonger totalement au cœur de l’histoire et faire de votre séance
+                        un événement à part entière.
+                    </p>
+                </div>
+                <button id="js-btnDisplayMore12" (click)="onClickForDisplay('js-dots12', 'js-more12', 'js-btnDisplayMore12')">Voir la réponse</button>
+            </div>
+        </article>
+    </section>
+
+    <!--Section contact-->
+    <section>
+        <h2>Autres questions</h2>
+        <h3>Vous avez une question qui n'apparaît pas dans le formulaire ci-dessus ?</h3>
+        <p>
+            Vous pouvez nous poser vos questions en accédant à la rubrique "Nous Contacter".
+        </p>
+    </section>
+</div>
