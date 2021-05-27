@@ -1,0 +1,59 @@
+package fr.hb2.cinemaproject.cinemaapplication.controller;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import fr.hb2.cinemaproject.cinemaapplication.entities.Users;
+import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
+import fr.hb2.cinemaproject.cinemaapplication.services.UserService;
+
+@RestController
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@PostConstruct
+	@Transactional
+	public void init() {
+		Users a = new Users("Richard", "Boris", "br@orange.fr", null, "inconnu", Gender.homme, "IlovePancakes" );
+		Users b = new Users("Wickers","Joanna","jsteDu52@orange.fr", null, "inconnu", Gender.femme, "Zombiegirl" );
+
+		userService.create(a);
+		userService.create(b);
+	}
+	
+	@DeleteMapping("/REST/utilisateur/{id}")
+	public void deleteUser (@PathVariable("id") Long id) {
+		userService.deleteById(id);
+	}
+	
+	@PutMapping("/REST/utilisateur")
+	public Users updateUser (@RequestBody Users user) {
+		userService.update(user);
+		return user;
+	}
+	
+	@GetMapping("/REST/utilisateur/{id}")
+	public Users getById(@PathVariable("id") Long id) {
+		return userService.getById(id);
+	}
+	
+	@GetMapping("/REST/utilisateur")
+	public List<Users> getAll() {
+		return userService.getAll();
+	}
+	
+
+}
