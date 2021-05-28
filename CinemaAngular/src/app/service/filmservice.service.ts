@@ -25,5 +25,13 @@ export class FilmserviceService {
   public save(film: Film) {
     return this.http.post<Film>(this.filmUrl, film);
   }
+
+  public remove(id: number) {
+    return this.http.delete<Film>(this.filmUrl + '/' + id);
+  }
+
+  public update(film:Film){
+    return this.http.put<Film>(this.filmUrl, film);
+  }
 }
 

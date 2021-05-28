@@ -1,9 +1,12 @@
 <p>
   Film works!
-  {{films}}
+
 
 </p>
 <div *ngFor="let film of films">
   {{film.title}}
+  {{film.idFilm}}
 </div>
 <button (click)="callSave()">save</button>
+<button (click)="callDelete()">delete</button>
+<button (click)="callUpdate()">update</button>
