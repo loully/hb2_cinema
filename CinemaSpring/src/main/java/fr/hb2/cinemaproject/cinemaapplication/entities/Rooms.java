@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import fr.hb2.cinemaproject.cinemaapplication.enums.SensoryExperience;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +22,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
+
 public class Rooms implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +37,13 @@ public class Rooms implements Serializable {
 	 @OneToOne(mappedBy = "rooms")
 	    private Sessions sessions;
 	 
+	 
+	 /**
+	  * Constructor without id 
+	  * @param roomNumber
+	  * @param numberOfSeats
+	  * @param sensoryExperience
+	  */
 	public Rooms(int roomNumber, int numberOfSeats, SensoryExperience sensoryExperience) {
 		super();
 		this.roomNumber = roomNumber;

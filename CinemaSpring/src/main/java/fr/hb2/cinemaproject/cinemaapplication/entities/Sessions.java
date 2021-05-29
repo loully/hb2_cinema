@@ -47,4 +47,13 @@ public class Sessions {
     @JoinColumn(name = "films_id", referencedColumnName = "id")
 	private Films films;
 
+	public Sessions(Rooms rooms, Shedules shedules, Films films) {
+		super();
+		this.rooms = rooms;
+		this.shedules = shedules;
+		this.films = films;
+	}
+	
+
+
 }

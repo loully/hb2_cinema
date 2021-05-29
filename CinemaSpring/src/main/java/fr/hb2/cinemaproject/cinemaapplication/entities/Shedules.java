@@ -29,13 +29,28 @@ public class Shedules {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date day_date;
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date start_time;
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date end_time;
 	@OneToMany(mappedBy = "shedules")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Sessions> sessions;
+	
+	/**
+	 * Constructor without id and Collection of Sessions
+	 * @param day_date
+	 * @param start_time
+	 * @param end_time
+	 */
+	public Shedules(Date day_date, Date start_time, Date end_time) {
+		super();
+		this.day_date = day_date;
+		this.start_time = start_time;
+		this.end_time = end_time;
+	}
+	
+	
 }
