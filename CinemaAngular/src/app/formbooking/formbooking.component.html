@@ -1,0 +1,39 @@
+ Toutes les séances sont ici :
+<div *ngFor="let seance of sessions">
+    <p>Séance : {{seance.id}}</p>
+    <p>Film : {{seance.films}}</p>
+    <p> Séances : {{seance.schedules}}</p>
+</div>
+
+
+<form>
+    <div class="form-row">
+        <div class="col-7">
+            <label for="filmName" class="form-label">Nom du film</label>
+            <select class="form-select" id="filmName">
+                <option selected>Sélectionnez le film</option>
+                <option value="1">Soul</option>
+                <option value="2">Toy Story 4</option>
+                <option value="3">En avant</option>
+                <option value="4">Némo</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="filmSchedule" class="form-label">Horaire</label>
+            <select class="form-select" id="filmSchedule">
+                <option selected>Sélectionnez l'horaire</option>
+                <option value="1">10:30</option>
+                <option value="2">14:00</option>
+                <option value="3">17:00</option>
+                <option value="4">20:00</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="numberSeats" class="form-label">Nombre de places réservées</label>
+            <input type="number" class="form-control" id="numberSeats" placeholder="Nombre de places">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary m-2">Réserver</button>
+        </div>
+    </div>
+</form>
