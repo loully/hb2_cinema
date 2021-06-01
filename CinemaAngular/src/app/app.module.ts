@@ -13,6 +13,7 @@ import { CinemaComponent } from './cinema/cinema.component';
 import { FilmComponent } from './Film/Film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormbookingComponent } from './formbooking/formbooking.component';
+import { RoomComponent } from './room/room.component';
 
 
 const appRoutes = [
@@ -22,7 +23,9 @@ const appRoutes = [
   { path: 'cinema', component: CinemaComponent },
   { path: 'list', component: ListeComponent },
   { path: 'film', component: FilmComponent },
-  { path: 'book', component: FormbookingComponent }
+  { path: 'book', component: FormbookingComponent },
+  { path: 'room', component: RoomComponent }
+
 ]
 
 @NgModule({
@@ -36,7 +39,8 @@ const appRoutes = [
     FooterComponent,
     CinemaComponent,
     FilmComponent,
-    FormbookingComponent
+    FormbookingComponent,
+    RoomComponent,
   ],
   imports: [
     BrowserModule,
