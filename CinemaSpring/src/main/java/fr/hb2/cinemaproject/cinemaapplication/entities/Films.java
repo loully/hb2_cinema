@@ -1,7 +1,8 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,12 +35,10 @@ public class Films {
 	private Long idFilm;
 	private String title;
 	private String languageFilm;
-	private double duration;
-	private Date releaseDate;
+	private LocalTime duration;
+	private LocalDate releaseDate;
 	private String description;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "posters_id", referencedColumnName = "id")
-	private Posters posters;
+	private String urlPoster;
 	 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	    @JoinTable(
@@ -63,7 +61,29 @@ public class Films {
 		this.title = title;
 		this.description = description;
 	}
-	
+
+	public Films(Long idFilm, String title, String languageFilm, LocalTime duration, LocalDate releaseDate,
+			String description, String urlPoster, Set<Categories> categories) {
+		super();
+		this.idFilm = idFilm;
+		this.title = title;
+		this.languageFilm = languageFilm;
+		this.duration = duration;
+		this.releaseDate = releaseDate;
+		this.description = description;
+		this.urlPoster = urlPoster;
+		this.categories = categories;
+	}
+
+	//Add a team member to Film
+	public void addTeamMembers(TeamMembers teamMember) {
+		teamMembers.add(teamMember);
+		
+		//Manage double dependancies
+		//Set<Films> films = new HashSet<Films>();
+		//films.add(this);
+		//teamMember.setFilms(films);
+	}
 	
     
     /*

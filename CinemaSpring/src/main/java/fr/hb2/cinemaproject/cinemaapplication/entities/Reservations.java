@@ -2,6 +2,7 @@ package fr.hb2.cinemaproject.cinemaapplication.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Reservations implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long takenSeats;
-	private Date hourOfReservation;
+	private LocalDate hourOfReservation;
 	private String reference;
 	@ManyToOne
 	private Sessions sessions;	

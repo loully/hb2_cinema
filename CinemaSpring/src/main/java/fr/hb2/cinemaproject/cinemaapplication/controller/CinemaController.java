@@ -30,9 +30,11 @@ import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 		        
 		            Films films = entityManager.find( Films.class, 1 );            
 		            System.out.println( "categorie associés à film" );
-		            for( Categories associatedRole : films.getCategories() ) {
-		                System.out.println( associatedRole );
-		            }
+					
+					  for( Categories associatedRole : films.getCategories() ) {
+					  System.out.println( associatedRole ); 
+					  }
+					 
 
 		            Categories categories = entityManager.find( Categories.class, 1 );            
 		            System.out.println( "film possédant le categorie client" );

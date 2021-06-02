@@ -29,13 +29,20 @@ import lombok.ToString;
 public class Categories {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 
 	private Categorie designation;
 
 
 	
 	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	    private Set<Films> Films = new HashSet<>();
+	    private List<Films> Films = new ArrayList<>();
+
+	public Categories(int id, Categorie designation) {
+		super();
+		this.id = id;
+		this.designation = designation;
+	}
+	 
 
 }

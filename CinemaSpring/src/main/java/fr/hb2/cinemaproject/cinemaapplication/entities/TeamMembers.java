@@ -50,6 +50,18 @@ public class TeamMembers {
 
     @ManyToMany(mappedBy = "teamMembers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Films> Films = new HashSet<>();
+public TeamMembers(Long id, String lastName, String firstName, Gender gender, String nationality, LocalDate dateOfBirth,
+		RoleMember roleMember) {
+	super();
+	this.id = id;
+	this.lastName = lastName;
+	this.firstName = firstName;
+	this.gender = gender;
+	this.nationality = nationality;
+	this.dateOfBirth = dateOfBirth;
+	this.roleMember = roleMember;
+}
  
+    
 }
 

@@ -33,12 +33,9 @@ public class SessionController {
 		Rooms room1 = new Rooms(1,125,null);
 		/*Shedules schedule1 = new Shedules(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()));
 		Sessions session1 = new Sessions(room1,schedule1,film1)
-		
 		System.out.println("-----Controller -------");
 		System.out.println("Session créé : "+session1);
-		
 		sessionService.create(session1);*/
-		
 	}
 	
 	@GetMapping("/REST/session/{id}")
