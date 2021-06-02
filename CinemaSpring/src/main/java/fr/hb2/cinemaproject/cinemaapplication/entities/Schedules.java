@@ -1,5 +1,7 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -29,12 +31,9 @@ public class Schedules {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date day_date;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date start_time;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date end_time;
+	private LocalDate day_date;
+	private LocalTime start_time;
+	private LocalTime end_time;
 	@OneToMany(mappedBy = "shedules")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Sessions> sessions;
@@ -45,7 +44,7 @@ public class Schedules {
 	 * @param start_time
 	 * @param end_time
 	 */
-	public Schedules(Date day_date, Date start_time, Date end_time) {
+	public Schedules(LocalDate day_date, LocalTime start_time, LocalTime end_time) {
 		super();
 		this.day_date = day_date;
 		this.start_time = start_time;

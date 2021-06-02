@@ -11,17 +11,17 @@ enum Gender {
 
 export class Users {
 
-  constructor( public id: number,
-                public lastName: string,
-                public firstName: string,
-                public mail: string,
+  constructor( public id?: number,
+                public lastName?: string,
+                public firstName?: string,
+                public mail?: string,
 
-                public dateOfBirth: Date,
-                public adress: string,
-                public gender: Gender,
-                public password: string,
+                public dateOfBirth?: Date,
+                public adress?: string,
+                public gender?: Gender,
+                public password?: string,
 
-                public  reservations: Reservation[],
-                public  teamMembers: TeamMembers[]
+                public  reservations?: Reservation[],
+                public  teamMembers?: TeamMembers[]
                 ){}
   }

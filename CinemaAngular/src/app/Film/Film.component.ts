@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FilmserviceService } from "../service/filmservice.service";
-import { Film } from '../model/Film';
+import { Films } from '../model/Films';
 @Component({
   selector: 'app-Film',
   templateUrl: './Film.component.html',
   styleUrls: ['./Film.component.css']
 })
 export class FilmComponent implements OnInit {
-  films: Film[] = [];
+  films: Films[] = [];
   constructor(private filmService: FilmserviceService) { }
 
 
@@ -26,7 +26,7 @@ export class FilmComponent implements OnInit {
     );
   }
   callSave() {
-    const film = new Film();
+    const film = new Films();
     film.title = 'toto';
 
     this.filmService.save(film).subscribe(

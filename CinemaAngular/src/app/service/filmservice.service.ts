@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Film } from '../model/Film';
+import { Films } from '../model/Films';
 import { Observable } from 'rxjs';
 
 
@@ -18,12 +18,12 @@ export class FilmserviceService {
 
 
 
-  public findAll(): Observable<Film[]> {
-    return this.http.get<Film[]>(this.filmUrl);
+  public findAll(): Observable<Films[]> {
+    return this.http.get<Films[]>(this.filmUrl);
   }
 
-  public save(film: Film) {
-    return this.http.post<Film>(this.filmUrl, film);
+  public save(film: Films) {
+    return this.http.post<Films>(this.filmUrl, film);
   }
 }
 
