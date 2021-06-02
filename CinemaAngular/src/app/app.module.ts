@@ -12,10 +12,10 @@ import { FooterComponent } from './footer/footer.component';
 import { CinemaComponent } from './cinema/cinema.component';
 import { FilmComponent } from './Film/Film.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormbookingComponent } from './formbooking/formbooking.component';
-import { RoomComponent } from './room/room.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
-
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReservationComponent } from './reservation/reservation.component';
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'plan', component: PlanComponent },
@@ -23,8 +23,8 @@ const appRoutes = [
   { path: 'cinema', component: CinemaComponent },
   { path: 'list', component: ListeComponent },
   { path: 'film', component: FilmComponent },
-  { path: 'book', component: FormbookingComponent },
-  { path: 'room', component: RoomComponent }
+  { path: 'signUp', component: SignupFormComponent },
+  { path: 'reservation', component: ReservationComponent }
 
 ]
 
@@ -39,13 +39,15 @@ const appRoutes = [
     FooterComponent,
     CinemaComponent,
     FilmComponent,
-    FormbookingComponent,
-    RoomComponent,
+    SignupFormComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,10 +25,10 @@ export class FilmComponent implements OnInit {
       }
     );
   }
-
   callSave() {
     const film = new Film();
     film.title = 'toto';
+
     this.filmService.save(film).subscribe(
       data => {
         console.log(data);
@@ -36,30 +36,4 @@ export class FilmComponent implements OnInit {
       }
     );
   }
-
-  callDelete(){
-    this.filmService.remove(2).subscribe(
-      data => {
-        console.log(data);
-        console.log('On a supprimé un film !');
-      }
-
-
-    )
-  }
-
-  callUpdate(){
-    const film = new Film();
-    film.duration = 90;
-    film.idFilm = 1;
-    this.filmService.update(film).subscribe(
-      data => {
-        console.log("Update a film with id  = "+ film.idFilm);
-      }
-    )
-  }
-
-
-
-
 }
