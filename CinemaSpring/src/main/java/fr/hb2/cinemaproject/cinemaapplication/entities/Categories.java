@@ -33,9 +33,7 @@ public class Categories {
 
 	private Categorie designation;
 
-	/*@ManyToMany
-	@JoinTable(name = "CategoriesFilm", joinColumns = @JoinColumn(name = "idCategories"), inverseJoinColumns = @JoinColumn(name = "idFilm"))
-	private List<Films> films = new ArrayList<>();*/
+
 	
 	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	    private Set<Films> Films = new HashSet<>();

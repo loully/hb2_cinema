@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 
 // Import the User model
-import { User } from '../model/User';
+import { Users } from '../model/Users';
 import { Userservice } from '../service/userservice';
 @Component({
   selector: 'app-signup-form',
@@ -18,7 +18,7 @@ import { Userservice } from '../service/userservice';
 export class SignupFormComponent {
   constructor(private userservice: Userservice) { }
   title = 'validation des formes angulaires';
-  user: User = new User();
+  user: Users = new Users();
   dateValidator(c: AbstractControl): { [key: string]: boolean } {
     let value = c.value;
     if (value && typeof value === 'string') {

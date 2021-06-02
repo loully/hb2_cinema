@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../model/User';
+import { Users } from '../model/Users';
 import { Observable } from 'rxjs';
 
 
@@ -11,24 +11,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Userservice {
-  user: User;
-  private userUrl: string;
+  users: Users;
+  private usersUrl: string;
   constructor(private http: HttpClient) {
-    this.userUrl = 'http://localhost:8080/REST/utilisateur';
+    this.usersUrl = 'http://localhost:8080/REST/utilisateur';
   }
 
 
 
 
-  public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl);
+  public findAll(): Observable<Users[]> {
+    return this.http.get<Users[]>(this.usersUrl);
   }
 
 
 
-  public save(user: User) {
+  public save(users: Users) {
 
-    return this.http.post<User>(this.userUrl, user);
+    return this.http.post<Users>(this.usersUrl, users);
 
   }
 }
