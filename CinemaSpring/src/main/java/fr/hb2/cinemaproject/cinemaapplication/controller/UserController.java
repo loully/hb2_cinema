@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Users;
 import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
 import fr.hb2.cinemaproject.cinemaapplication.services.UserService;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 	
@@ -44,7 +45,11 @@ public class UserController {
 		userService.update(user);
 		return user;
 	}
-	
+	@PostMapping("/REST/utilisateur")
+	public Users createUser (@RequestBody Users user) {
+		userService.create(user);
+		return user;
+	}
 	@GetMapping("/REST/utilisateur/{id}")
 	public Users getById(@PathVariable("id") Long id) {
 		return userService.getById(id);

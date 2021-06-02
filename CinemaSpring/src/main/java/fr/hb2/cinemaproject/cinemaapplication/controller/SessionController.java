@@ -3,7 +3,6 @@ package fr.hb2.cinemaproject.cinemaapplication.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
@@ -32,13 +31,13 @@ public class SessionController {
 	public void init() {
 		Films film1 = new Films("Toy Story 4", "Woody a toujours privilégié la joie de ses jeunes propriétaires - Andy puis Bonnie - et de ses compagnons, n'hésitant pas à prendre tous les risques pour eux, aussi inconsidérés soient-ils.");
 		Rooms room1 = new Rooms(1,125,null);
-		Shedules schedule1 = new Shedules(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()));
-		Sessions session1 = new Sessions(room1,schedule1,film1);
+		/*Shedules schedule1 = new Shedules(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now()));
+		Sessions session1 = new Sessions(room1,schedule1,film1)
 		
 		System.out.println("-----Controller -------");
 		System.out.println("Session créé : "+session1);
 		
-		sessionService.create(session1);
+		sessionService.create(session1);*/
 		
 	}
 	

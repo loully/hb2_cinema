@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="logo">Create a new account!</div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form form-register">
+    <div class="container register-form">
+      <div class="form">
+        <div class="note">
+          <p>S'enregister</p>
+        </div>
+
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" class="form-control-feedback" [ngClass]="{
+                'has-danger': firstName.invalid && firstName.dirty,
+                'has-success': firstName.valid && firstName.dirty
+              }">
+
+                <label>
+                  Nom:
+                  <input type="text" formControlName="firstName" class="form-control" placeholder="votre nom*"
+                    [class.is-invalid]="profileForm.get('firstName').invalid && profileForm.get('firstName').touched"
+                    value="" />
+                </label>
+              </div>
+              <div class="form-group">
+                <label>
+                  Prenom:
+                  <input type="text" formControlName="lastName" class="form-control" placeholder="votre prenom *"
+                    [class.is-invalid]="profileForm.get('lastName').invalid && profileForm.get('lastName').touched"
+                    value="" />
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Date de naissanse:
+
+                  <input type="text" formControlName="dateOfBirth" class="form-control"
+                    [class.is-invalid]="profileForm.get('dateOfBirth').invalid && profileForm.get('dateOfBirth').touched"
+                    placeholder="votre  date de naissanse *" value="" />
+                </label>
+              </div>
+              <div class="form-group" [ngClass]="{       'has-danger': profileForm.controls.mail.invalid && profileForm.controls.mail.dirty,
+                'has-success': profileForm.controls.mail.valid && profileForm.controls.mail.dirty
+              }">
+                <label>
+                  Votre Email:
+
+                  <input type="text" formControlName="mail"
+                    [class.is-invalid]="profileForm.get('mail').invalid && profileForm.get('mail').touched"
+                    class="form-control" placeholder="votre email *" value="" />
+                </label>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
