@@ -16,6 +16,7 @@ import { FormbookingComponent } from './formbooking/formbooking.component';
 import { RoomComponent } from './room/room.component';
 
 
+
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'plan', component: PlanComponent },
@@ -42,6 +43,8 @@ const appRoutes = [
     FormbookingComponent,
     RoomComponent,
   ],
+
+ 
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
