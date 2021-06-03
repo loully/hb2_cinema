@@ -27,11 +27,15 @@ public class FilmController {
 	@PostConstruct
 	@Transactional
 	public void init() {
-		Films a = new Films("Là-haut", "Un grand père s'envole dans sa maison avec des ballons.");
-		Films b = new Films("Le monde de Némo", "Un petit poisson nommé Némo est séparé de son père et tente de le retrouver.");
-
-		filmService.create(a);
-		filmService.create(b);
+//		Films a = new Films("Là-haut", "Un grand père s'envole dans sa maison avec des ballons.");
+//		Films b = new Films("Le monde de Némooooooooo", " Némo est séparé de son père et tente de le retrouver.");
+//		Films c = new Films("Là-hautttttt", " sa maison avec des ballons.");
+//		
+//		filmService.create(a);
+//		filmService.create(b);
+//		filmService.create(c);
+		
+		
 	}
 	
 	@DeleteMapping("/REST/film/{id}")

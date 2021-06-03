@@ -1,16 +1,8 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
-
-import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,6 +45,7 @@ public class TeamMembers {
 //    private Set<Films> Films = new HashSet<>();
     
     @ManyToOne
+    @JoinColumn(name="idFilm")
     private Films film; 
     
 public TeamMembers(Long id, String lastName, String firstName, Gender gender, String nationality, LocalDate dateOfBirth,

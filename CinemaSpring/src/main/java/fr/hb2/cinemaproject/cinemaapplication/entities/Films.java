@@ -4,29 +4,31 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "idFilm")
 public class Films {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long idFilm;
 	private String title;
@@ -46,10 +48,13 @@ public class Films {
 //	    )
 //	    private Set<Categories> categories = new HashSet<>();
 	
-	@OneToMany(mappedBy="film")
-    private List<TeamMembers> teamMembers = new ArrayList<>();
+	//@OneToMany(mappedBy="film")
+ // private List<TeamMembers> teamMembers = new ArrayList<>();
+
+	@OneToMany(targetEntity = TeamMembers.class, mappedBy = "film", cascade = CascadeType.ALL)
+	 private List<TeamMembers> teamMembers = new ArrayList<>();
 	
-	@OneToOne(mappedBy = "film")
+	@OneToOne(mappedBy = "film", cascade = CascadeType.ALL)
 	private Sessions sessions;
 	
 	public Films(String title, String description) {
@@ -76,9 +81,14 @@ public class Films {
 		teamMembers.add(teamMember);
 		
 		//Manage double dependancies
-		//Set<Films> films = new HashSet<Films>();
-		//films.add(this);
-		//teamMember.setFilms(films);
+		teamMember.setFilm(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Films [idFilm=" + idFilm + ", title=" + title + ", languageFilm=" + languageFilm + ", duration="
+				+ duration + ", releaseDate=" + releaseDate + ", description=" + description + ", urlPoster="
+				+ urlPoster + ", categorie=" + categorie.getId() + "]";
 	}
 	
     
