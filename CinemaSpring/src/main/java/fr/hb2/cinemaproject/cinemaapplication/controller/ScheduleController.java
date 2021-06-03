@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.hb2.cinemaproject.cinemaapplication.entities.Schedules;
+
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 import fr.hb2.cinemaproject.cinemaapplication.services.ScheduleService;
 
 @CrossOrigin(origins = "*")
@@ -18,12 +19,12 @@ public class ScheduleController {
 	private ScheduleService scheduleService;
 	
 	@GetMapping("/REST/schedule/{id}")
-	public Schedules getById(@PathVariable("id") Long id) {
+	public Shedules getById(@PathVariable("id") Long id) {
 		return scheduleService.getById(id);
 	}
 	
 	@GetMapping("/REST/schedule")
-	public List<Schedules> getAll() {
+	public List<Shedules> getAll() {
 		return scheduleService.getAll();
 	}
 

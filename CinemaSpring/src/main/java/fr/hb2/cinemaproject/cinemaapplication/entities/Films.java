@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,21 +42,18 @@ public class Films {
 	private String description;
 	private String urlPoster;
 	 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	    @JoinTable(
-	            name = "categoriesFilm",
-	            joinColumns = {@JoinColumn(name = "idFilm")},
-	            inverseJoinColumns = {@JoinColumn(name = "idCategories")}
-	    )
-	    private Set<Categories> categories = new HashSet<>();
+	@ManyToOne
+	private Categories categorie;
+//	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//	    @JoinTable(
+//	            name = "categoriesFilm",
+//	            joinColumns = {@JoinColumn(name = "idFilm")},
+//	            inverseJoinColumns = {@JoinColumn(name = "idCategories")}
+//	    )
+//	    private Set<Categories> categories = new HashSet<>();
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(
-            name = "filmsTeamMembers",
-            joinColumns = {@JoinColumn(name = "idFilm")},
-            inverseJoinColumns = {@JoinColumn(name = "idTeamMembers")}
-    )
-    private Set<TeamMembers> teamMembers = new HashSet<>();
+	@OneToMany(mappedBy="film")
+    private List<TeamMembers> teamMembers = new ArrayList<>();
 
 	public Films(String title, String description) {
 		super();
@@ -63,7 +62,7 @@ public class Films {
 	}
 
 	public Films(Long idFilm, String title, String languageFilm, LocalTime duration, LocalDate releaseDate,
-			String description, String urlPoster, Set<Categories> categories) {
+			String description, String urlPoster, Categories categorie) {
 		super();
 		this.idFilm = idFilm;
 		this.title = title;
@@ -72,7 +71,7 @@ public class Films {
 		this.releaseDate = releaseDate;
 		this.description = description;
 		this.urlPoster = urlPoster;
-		this.categories = categories;
+		this.categorie = categorie;
 	}
 
 	//Add a team member to Film

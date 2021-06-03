@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -48,8 +49,12 @@ public class TeamMembers {
 	@JoinTable(name = "FilmsTeamMembers", joinColumns = @JoinColumn(name = "idTeamMembers"), inverseJoinColumns = @JoinColumn(name = "idFilm"))
 	private List<TeamMembers> teamMembers = new ArrayList<>();*/
 
-    @ManyToMany(mappedBy = "teamMembers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private Set<Films> Films = new HashSet<>();
+//    @ManyToMany(mappedBy = "teamMembers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    private Set<Films> Films = new HashSet<>();
+    
+    @ManyToOne
+    private Films film; 
+    
 public TeamMembers(Long id, String lastName, String firstName, Gender gender, String nationality, LocalDate dateOfBirth,
 		RoleMember roleMember) {
 	super();

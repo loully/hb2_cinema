@@ -2,11 +2,12 @@ package fr.hb2.cinemaproject.cinemaapplication.services;
 
 import java.util.List;
 
-import fr.hb2.cinemaproject.cinemaapplication.entities.Schedules;
+
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 
 
 public interface ScheduleService {
-	public Schedules getById (Long id);
-	public List<Schedules> getAll();
+	public Shedules getById (Long id);
+	public List<Shedules> getAll();
 
 }

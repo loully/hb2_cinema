@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import fr.hb2.cinemaproject.cinemaapplication.enums.Categorie;
 import lombok.AllArgsConstructor;
@@ -33,10 +34,12 @@ public class Categories {
 
 	private Categorie designation;
 
+	@OneToMany(mappedBy = "categorie")
+	private List<Films> films;
 
 	
-	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	    private List<Films> Films = new ArrayList<>();
+//	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//	    private List<Films> Films = new ArrayList<>();
 
 	public Categories(int id, Categorie designation) {
 		super();

@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import fr.hb2.cinemaproject.cinemaapplication.dao.SchedulesDao;
-import fr.hb2.cinemaproject.cinemaapplication.entities.Schedules;
+import fr.hb2.cinemaproject.cinemaapplication.dao.ShedulesDao;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
+
 
 @Service
 public class ScheduleServiceImpl implements ScheduleService{
 	
 	@Autowired
-	SchedulesDao scheduleDAO;
+	ShedulesDao scheduleDAO;
 	
 	@Override
-	public Schedules getById(Long id) {
+	public Shedules getById(Long id) {
 		return scheduleDAO.findById(id).orElse(null);
 	}
 	
 	@Override
-	public List<Schedules> getAll(){
+	public List<Shedules> getAll(){
 		return scheduleDAO.findAll();
 	}
 
