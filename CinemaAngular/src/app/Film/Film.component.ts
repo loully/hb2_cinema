@@ -8,7 +8,9 @@ import { Films } from '../model/Films';
   styleUrls: ['./Film.component.css']
 })
 export class FilmComponent implements OnInit {
+
   films: Films[] = [];
+
   constructor(private filmService: FilmserviceService) { }
 
 
@@ -20,7 +22,7 @@ export class FilmComponent implements OnInit {
 
     this.filmService.findAll().subscribe(
       data => {
-        this.films = data;
+        this.film = data;
 
       }
     );
