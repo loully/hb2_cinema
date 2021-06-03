@@ -22,7 +22,7 @@ export class FilmComponent implements OnInit {
 
     this.filmService.findAll().subscribe(
       data => {
-        this.film = data;
+        this.films = data;
 
       }
     );

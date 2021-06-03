@@ -14,7 +14,8 @@ import { FilmComponent } from './Film/Film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ReservationComponent } from './reservation/reservation.component';
+import { FormbookingComponent } from './formbooking/formbooking.component';
+import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,8 @@ const appRoutes = [
   { path: 'list', component: ListeComponent },
   { path: 'film', component: FilmComponent },
   { path: 'signUp', component: SignupFormComponent },
-  { path: 'reservation', component: ReservationComponent }
+  { path: 'booking', component: FormbookingComponent  },
+  { path: 'recapbooking', component: BookingrecapitulativeComponent  },
 
 ]
 
@@ -40,7 +42,8 @@ const appRoutes = [
     CinemaComponent,
     FilmComponent,
     SignupFormComponent,
-    ReservationComponent
+    FormbookingComponent,
+    BookingrecapitulativeComponent 
   ],
 
  
