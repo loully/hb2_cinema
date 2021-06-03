@@ -42,5 +42,10 @@ public class Sessions {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shedules_id", referencedColumnName = "id")
 	private Shedules shedules;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "films_id", referencedColumnName = "id")
+	private Films film;
+	
 
 }

@@ -3,22 +3,16 @@ package fr.hb2.cinemaproject.cinemaapplication.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -54,7 +48,10 @@ public class Films {
 	
 	@OneToMany(mappedBy="film")
     private List<TeamMembers> teamMembers = new ArrayList<>();
-
+	
+	@OneToOne(mappedBy = "film")
+	private Sessions sessions;
+	
 	public Films(String title, String description) {
 		super();
 		this.title = title;
