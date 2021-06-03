@@ -47,8 +47,9 @@ public class Shedules {
 	 * @param start_time
 	 * @param end_time
 	 */
-	public Shedules(LocalDate day_date, LocalTime start_time, LocalTime end_time) {
+	public Shedules(Long id, LocalDate day_date, LocalTime start_time, LocalTime end_time) {
 		super();
+		this.id = id;
 		this.day_date = day_date;
 		this.start_time = start_time;
 		this.end_time = end_time;

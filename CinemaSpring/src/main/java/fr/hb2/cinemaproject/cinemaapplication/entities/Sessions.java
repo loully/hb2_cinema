@@ -46,6 +46,16 @@ public class Sessions {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "films_id", referencedColumnName = "id")
 	private Films film;
+
+	public Sessions(Long id, Rooms rooms, Shedules shedules, Films film) {
+		super();
+		this.id = id;
+		this.rooms = rooms;
+		this.shedules = shedules;
+		this.film = film;
+	}
+	
+	
 	
 
 }
