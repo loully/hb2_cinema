@@ -1,12 +1,14 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import fr.hb2.cinemaproject.cinemaapplication.enums.SensoryExperience;
 import lombok.AllArgsConstructor;
@@ -26,8 +28,8 @@ public class Rooms implements Serializable {
 	private int roomNumber;
 	private int numberOfSeats;
 	private SensoryExperience sensoryExperience;
-	 @OneToOne(mappedBy = "rooms")
-	    private Sessions sessions;
+	 @OneToMany(targetEntity = Sessions.class, mappedBy = "rooms",cascade = CascadeType.ALL)
+	    private List<Sessions> sessions;
 	 
 	public Rooms(int roomNumber, int numberOfSeats, SensoryExperience sensoryExperience) {
 		super();

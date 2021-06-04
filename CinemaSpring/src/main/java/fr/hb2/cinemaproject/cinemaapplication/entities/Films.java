@@ -58,8 +58,8 @@ public class Films {
 	@OneToMany(targetEntity = TeamMembers.class, mappedBy = "film", cascade = CascadeType.ALL)
 	 private List<TeamMembers> teamMembers = new ArrayList<>();
 	
-	@OneToOne(mappedBy = "film", cascade = CascadeType.ALL)
-	private Sessions sessions;
+	@OneToMany(targetEntity = Sessions.class,mappedBy = "film", cascade = CascadeType.ALL)
+	private List<Sessions> sessions;
 	
 	public Films(String title, String description) {
 		super();

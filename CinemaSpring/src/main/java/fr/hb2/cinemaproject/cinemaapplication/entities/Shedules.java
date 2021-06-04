@@ -2,8 +2,9 @@ package fr.hb2.cinemaproject.cinemaapplication.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,9 +38,9 @@ public class Shedules {
 	private LocalTime start_time;
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalTime end_time;
-	@OneToMany(mappedBy = "shedules")
+	@OneToMany(mappedBy="shedules",cascade = CascadeType.ALL)
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Collection<Sessions> sessions;
+	private List<Sessions> sessions;
 	
 	/**
 	 * Constructor without id and Collection of Sessions
@@ -47,8 +48,9 @@ public class Shedules {
 	 * @param start_time
 	 * @param end_time
 	 */
-	public Shedules(LocalDate day_date, LocalTime start_time, LocalTime end_time) {
+	public Shedules(Long id, LocalDate day_date, LocalTime start_time, LocalTime end_time) {
 		super();
+		this.id = id;
 		this.day_date = day_date;
 		this.start_time = start_time;
 		this.end_time = end_time;
