@@ -4,6 +4,8 @@ import { PlanComponent } from './plan/plan.component';
 import { ListeComponent } from './liste/liste.component';
 import { HelpComponent } from './help/help.component';
 
+import { MarkerService } from './marker.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -54,7 +56,9 @@ const appRoutes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    MarkerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
