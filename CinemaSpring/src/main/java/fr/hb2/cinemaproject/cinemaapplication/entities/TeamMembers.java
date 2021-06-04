@@ -7,12 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
 import fr.hb2.cinemaproject.cinemaapplication.enums.RoleMember;
@@ -22,10 +26,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "TeamMembers.getByName", query = "select s from TeamMembers s where s.lastName = :lastName and s.firstName = :firstName")})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class TeamMembers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +50,7 @@ public class TeamMembers {
 
 //    @ManyToMany(mappedBy = "teamMembers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 //    private Set<Films> Films = new HashSet<>();
-    
+    @JsonIgnoreProperties
     @ManyToOne
     @JoinColumn(name="idFilm")
     private Films film; 

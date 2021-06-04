@@ -34,18 +34,18 @@ public class Categories {
 
 	private Categorie designation;
 
-	@OneToMany(mappedBy = "categorie")
-	private List<Films> films;
+	//@OneToMany(mappedBy = "categorie")
+	//private List<Films> films;
 
 	
 //	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 //	    private List<Films> Films = new ArrayList<>();
 
-	public Categories(int id, Categorie designation) {
+/*	public Categories(int id, Categorie designation) {
 		super();
 		this.id = id;
 		this.designation = designation;
-	}
+	}*/
 	 
 
 }

@@ -1,9 +1,99 @@
-<p>
-  Film works!
-  {{films}}
+<div class="container" class="p-3 mb-2 bg-info text-dark">
+  <form class="form-inline" action="/recherche/" method="get">
 
-</p>
-<div *ngFor="let film of films">
-  {{film.title}}
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <select id="oCategorie" name="oCategorie" class="form-control">
+          <option selected="selected" value="0">Catégorie</option>
+          <option value="1">animation</option>
+          <option value="1">famille</option>
+          <option value="1">fantastique</option>
+          <option value="1">comédie</option>
+          <option value="1">aventure</option>
+        </select>
+      </div>
+      <input id="oSaisie" name="oSaisie" type="text" [(ngModel)]="searchTitle" class="form-control"
+        aria-label="Saisie de mots clés" required="required">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit" color="light" (click)="searchMovie()">Recherche</button>
+      </div>
+    </div>
+    <div>
+      <button (click)="callSave()" type="button" class="btn btn-success">save</button>
+      <img [src]="movieData.imageUrl">
+      <h1>{{ movieData.title }}</h1>
+      <p>{{ movieData.description }}</p>
+    </div>
+
+  </form>
+
 </div>
-<button (click)="callSave()">save</button>
+<div class="form-outline">
+
+
+
+
+
+
+
+
+
+
+  < <div class="container">
+    <h1>Tous les films</h1>
+
+    <div class="col-4" class="row">
+      <table class="table table-striped">
+        <thead>
+
+          <tr>
+            <th>Film</th>
+            <th>Années</th>
+            <th>Genres</th>
+            <th>Poster</th>
+            <th>Ajouter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movieDataAll;let i = index">
+            <td><strong>{{ movie.Title }}</strong></td>
+            <td><strong>{{ movie.Year }}</strong></td>
+            <td><strong>{{ movie.Type }}</strong></td>
+            <img [src]="movie.Poster">
+
+
+
+            <td><button type="button" class="btn btn-success">Ajouter</button></td>
+
+          </tr>
+
+
+      </table>
+      <!--  <table class="table table-striped">
+        <thead>
+
+          <tr>
+            <th>Film</th>
+            <th>Description</th>
+            <th>Poster</th>
+            <th>Horaires</th>
+            <th>panier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of films;let i = index">
+            <td><strong>{{ film.title }}</strong></td>
+            <td>{{ film.imageUrl}}</td>
+
+            <td> <img [src]=" film.imageUrl" /></td>
+            <td>{{ film.description}}</td>
+            <td><button type="button" class="btn btn-success">Ajouter</button></td>
+
+          </tr>
+
+
+      </table>-->
+
+    </div>
+
+</div>

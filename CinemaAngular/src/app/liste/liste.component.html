@@ -1,22 +1,29 @@
 <div class="container">
-    <h1>Toutes les séances</h1>
+  <h1>Toutes les séances</h1>
 
-    <div class="col-4">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Film</th>
-                    <th>Salle</th>
-                    <th>Séances</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let seance of listSessions;let i = index">
-                    <td>{{ seance.filmId }}</td>
-                    <td>{{ seance.roomId }}</td>
-                    <td>{{ seance.scheduleId }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="col-4" class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Film</th>
+          <th>Description</th>
+          <th>Poster</th>
+          <th>Horaires</th>
+          <th>panier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let film of films;let i = index">
+          <td><strong>{{ film.title }}</strong></td>
+          <td>{{film.description}}</td>
+
+          <td> <img [src]="film.urlPoster" /></td>
+          <td>{{film.duration}}</td>
+          <td><button type="button" class="btn btn-success">Ajouter</button></td>
+
+        </tr>
+
+
+    </table>
+  </div>
 </div>

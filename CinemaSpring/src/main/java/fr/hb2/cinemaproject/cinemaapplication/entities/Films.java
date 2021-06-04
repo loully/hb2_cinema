@@ -4,11 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -20,12 +23,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Films.getByName", query = "select c from Films c where c.title = :title")})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property = "idFilm")
+@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFilm")
+
 public class Films {
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
