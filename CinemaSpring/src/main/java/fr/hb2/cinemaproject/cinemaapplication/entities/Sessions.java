@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -35,15 +35,15 @@ public class Sessions {
 	private Collection<Reservations> reservations;
 
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
     @JoinColumn(name = "rooms_id", referencedColumnName = "id")
 	private Rooms rooms;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
     @JoinColumn(name = "shedules_id", referencedColumnName = "id")
 	private Shedules shedules;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
     @JoinColumn(name = "films_id", referencedColumnName = "id")
 	private Films film;
 
