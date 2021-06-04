@@ -15,7 +15,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
@@ -50,7 +49,7 @@ public class TeamMembers {
 
 //    @ManyToMany(mappedBy = "teamMembers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 //    private Set<Films> Films = new HashSet<>();
-    @JsonIgnoreProperties
+   
     @ManyToOne
     @JoinColumn(name="idFilm")
     private Films film; 

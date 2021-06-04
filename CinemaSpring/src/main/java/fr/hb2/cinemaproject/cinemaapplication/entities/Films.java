@@ -8,31 +8,26 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NamedQueries({
-    @NamedQuery(name = "Films.getByName", query = "select c from Films c where c.title = :title")})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFilm")
-
 public class Films {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long idFilm;
 	private String title;
@@ -41,8 +36,9 @@ public class Films {
 	private LocalDate releaseDate;
 	private String description;
 	private String urlPoster;
-	 
+
 	@ManyToOne
+	@JoinColumn
 	private Categories categorie;
 //	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 //	    @JoinTable(
@@ -51,16 +47,18 @@ public class Films {
 //	            inverseJoinColumns = {@JoinColumn(name = "idCategories")}
 //	    )
 //	    private Set<Categories> categories = new HashSet<>();
-	
-	//@OneToMany(mappedBy="film")
- // private List<TeamMembers> teamMembers = new ArrayList<>();
 
+	// @OneToMany(mappedBy="film")
+	// private List<TeamMembers> teamMembers = new ArrayList<>();
+
+	@JsonIgnore
 	@OneToMany(targetEntity = TeamMembers.class, mappedBy = "film", cascade = CascadeType.ALL)
-	 private List<TeamMembers> teamMembers = new ArrayList<>();
-	
-	@OneToMany(targetEntity = Sessions.class,mappedBy = "film", cascade = CascadeType.ALL)
+	private List<TeamMembers> teamMembers = new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(targetEntity = Sessions.class, mappedBy = "film", cascade = CascadeType.ALL)
 	private List<Sessions> sessions;
-	
+
 	public Films(String title, String description) {
 		super();
 		this.title = title;
@@ -80,11 +78,11 @@ public class Films {
 		this.categorie = categorie;
 	}
 
-	//Add a team member to Film
+	// Add a team member to Film
 	public void addTeamMembers(TeamMembers teamMember) {
 		teamMembers.add(teamMember);
-		
-		//Manage double dependancies
+
+		// Manage double dependancies
 		teamMember.setFilm(this);
 	}
 
@@ -94,18 +92,21 @@ public class Films {
 				+ duration + ", releaseDate=" + releaseDate + ", description=" + description + ", urlPoster="
 				+ urlPoster + ", categorie=" + categorie.getId() + "]";
 	}
-	
-    
-    /*
-	@ManyToMany
-	@JoinTable(name = "CategoriesFilm", joinColumns = @JoinColumn(name = "idFilm"), inverseJoinColumns = @JoinColumn(name = "idCategories"))
-	private List<Categories> categories = new ArrayList<>();
-	@ManyToMany
-	@JoinTable(name = "FilmsTeamMembers", joinColumns = @JoinColumn(name = "idFilm"), inverseJoinColumns = @JoinColumn(name = "idTeamMembers"))
-	private List<TeamMembers> teamMembers = new ArrayList<>();
-	
-	
-*/
-	
-	
+
+	/*
+	 * @ManyToMany
+	 * 
+	 * @JoinTable(name = "CategoriesFilm", joinColumns = @JoinColumn(name =
+	 * "idFilm"), inverseJoinColumns = @JoinColumn(name = "idCategories")) private
+	 * List<Categories> categories = new ArrayList<>();
+	 * 
+	 * @ManyToMany
+	 * 
+	 * @JoinTable(name = "FilmsTeamMembers", joinColumns = @JoinColumn(name =
+	 * "idFilm"), inverseJoinColumns = @JoinColumn(name = "idTeamMembers")) private
+	 * List<TeamMembers> teamMembers = new ArrayList<>();
+	 * 
+	 * 
+	 */
+
 }

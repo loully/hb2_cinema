@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -38,6 +39,7 @@ public class Shedules {
 	private LocalTime start_time;
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalTime end_time;
+	@JsonIgnore
 	@OneToMany(mappedBy="shedules",cascade = CascadeType.ALL)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Sessions> sessions;

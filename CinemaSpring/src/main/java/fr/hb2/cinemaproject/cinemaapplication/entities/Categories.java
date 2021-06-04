@@ -1,20 +1,14 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import fr.hb2.cinemaproject.cinemaapplication.enums.Categorie;
 import lombok.AllArgsConstructor;
@@ -28,16 +22,22 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Categories {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    private Categorie designation;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-//    @OneToMany(mappedBy = "categorie")
-//    private List<Films> films;
+	private Categorie designation;
+	
+	@JsonIgnore
+	@OneToMany(targetEntity = Films.class, mappedBy = "categorie")
+	private List<Films> films;
 
+	public Categories(int id, Categorie designation) {
 
+		this.id = id;
+		this.designation = designation;
+	}
 //     @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 //        private List<Films> Films = new ArrayList<>();
 

@@ -2,7 +2,6 @@ package fr.hb2.cinemaproject.cinemaapplication.entities;
 
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -29,7 +29,7 @@ public class Sessions {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "sessions")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Reservations> reservations;

@@ -10,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.hb2.cinemaproject.cinemaapplication.enums.SensoryExperience;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 
 @Entity
 @Data
@@ -28,17 +31,15 @@ public class Rooms implements Serializable {
 	private int roomNumber;
 	private int numberOfSeats;
 	private SensoryExperience sensoryExperience;
-	 @OneToMany(targetEntity = Sessions.class, mappedBy = "rooms",cascade = CascadeType.ALL)
-	    private List<Sessions> sessions;
-	 
+	@JsonIgnore
+	@OneToMany(targetEntity = Sessions.class, mappedBy = "rooms", cascade = CascadeType.ALL)
+	private List<Sessions> sessions;
+
 	public Rooms(int roomNumber, int numberOfSeats, SensoryExperience sensoryExperience) {
 		super();
 		this.roomNumber = roomNumber;
 		this.numberOfSeats = numberOfSeats;
 		this.sensoryExperience = sensoryExperience;
 	}
-	 
-	
-	
-	
+
 }
