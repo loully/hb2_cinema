@@ -19,7 +19,7 @@
       </div>
     </div>
     <div>
-      <button (click)="callSave()" type="button" class="btn btn-success">save</button>
+      <button type="button" class="btn btn-success">save</button>
       <img [src]="movieData.imageUrl">
       <h1>{{ movieData.title }}</h1>
       <p>{{ movieData.description }}</p>
@@ -63,7 +63,7 @@
 
 
 
-            <td><button type="button" class="btn btn-success">Ajouter</button></td>
+            <td><button type="button" class="btn btn-success" (click)="callSave(movie)">Ajouter</button></td>
 
           </tr>
 

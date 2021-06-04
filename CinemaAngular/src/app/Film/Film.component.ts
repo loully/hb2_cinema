@@ -27,7 +27,7 @@ export class FilmComponent implements OnInit {
 
       .subscribe((data) => {
         console.log('readapi', data);
-        console.log('readapi', data);
+        console.log('readapi', data.Search);
 
         this.movieDataAll = data.Search;
 
@@ -41,7 +41,7 @@ export class FilmComponent implements OnInit {
     this.readAPI(this.movieApiUrl)
       .subscribe((data) => {
         console.log('recheche movie ', data);
-        this.movieDataAll = data;
+        this.movieDataAll = data.Search;
       });
   }
   searchTitle = '';
@@ -65,14 +65,18 @@ export class FilmComponent implements OnInit {
       }
     );
   }
-  callSave() {
+  callSave(movie: MovieOpendbi) {
     const film = new Films();
-    //const movieOpendbi = new MovieOpendbi();
-    film.title = 'toto';
 
+    film.title = movie.Title;
+    film.languageFilm = movie.Type;
+    film.description = movie.Year;
+    film.urlPoster = movie.Poster;
     this.filmService.save(film).subscribe(
       data => {
+
         console.log(data);
+        console.log('movie show', movie);
 
       }
     );
