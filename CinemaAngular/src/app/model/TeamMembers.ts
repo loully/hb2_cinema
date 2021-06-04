@@ -1,19 +1,19 @@
-import {Films } from "./Films";
+import { Films } from "./Films";
 
 enum Gender {
         homme = 'homme',
         femme = 'femme',
-        autre= 'autre'
-      }
+        autre = 'autre'
+}
 
 enum RoleMember {
         acteur = 'acteur',
         réalisateur = 'réalisateur'
-      }    
+}
 
-export class TeamMembers{
+export class TeamMembers {
 
-    constructor(public id: number,
+        constructor(public id: number,
                 public lastName: string,
                 public firstName: string,
                 public gender: Gender,
@@ -22,5 +22,5 @@ export class TeamMembers{
                 public roleMember: RoleMember,
 
                 public films: Films[]
-        ){}
+        ) { }
 }
