@@ -28,32 +28,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Categories {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	private Categorie designation;
+    private Categorie designation;
 
-<<<<<<< HEAD
-	//@OneToMany(mappedBy = "categorie")
-	//private List<Films> films;
-=======
-//	@OneToMany(mappedBy = "categorie")
-//	private List<Films> films;
->>>>>>> 26f4d3791d5d2226778fb09f078f186372e1b51d
+//    @OneToMany(mappedBy = "categorie")
+//    private List<Films> films;
 
-	
-//	 @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//	    private List<Films> Films = new ArrayList<>();
 
-<<<<<<< HEAD
-/*	public Categories(int id, Categorie designation) {
-		super();
-		this.id = id;
-		this.designation = designation;
-	}*/
-	 
+//     @ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//        private List<Films> Films = new ArrayList<>();
 
-=======
->>>>>>> 26f4d3791d5d2226778fb09f078f186372e1b51d
 }
