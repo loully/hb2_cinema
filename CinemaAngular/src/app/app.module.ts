@@ -4,6 +4,8 @@ import { PlanComponent } from './plan/plan.component';
 import { ListeComponent } from './liste/liste.component';
 import { HelpComponent } from './help/help.component';
 
+import { MarkerService } from './marker.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -16,8 +18,12 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormbookingComponent } from './formbooking/formbooking.component';
 import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
+<<<<<<< HEAD
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+=======
+// import { HTTP } from '@ionic-native/http/ngx';
+>>>>>>> 7c39cfe29055d9dd43eea75b68771f1c92c5f813
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -58,6 +64,13 @@ const appRoutes = [
     ReactiveFormsModule
     , NgbModule
   ],
+<<<<<<< HEAD
+=======
+  providers: [
+    // HTTP,
+    MarkerService
+  ],
+>>>>>>> 7c39cfe29055d9dd43eea75b68771f1c92c5f813
 
   bootstrap: [AppComponent]
 })
