@@ -81,4 +81,8 @@ export class FilmComponent implements OnInit {
       }
     );
   }
+  deletefilm(id) {
+
+    this.filmService.delete(id).subscribe();
+  }
 }

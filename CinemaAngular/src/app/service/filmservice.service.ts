@@ -11,8 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class FilmserviceService {
   private filmUrl: string;
+  private filmUrlde: string;
+
+
   constructor(private http: HttpClient) {
     this.filmUrl = 'http://localhost:8080/REST/film';
+    this.filmUrlde = 'http://localhost:8080/REST/film/';
   }
 
 
@@ -24,6 +28,10 @@ export class FilmserviceService {
 
   public save(film: Films) {
     return this.http.post<Films>(this.filmUrl, film);
+  }
+  public delete(id: number) {
+    let paramid = id;
+    return this.http.delete<Films>(this.filmUrlde + id);
   }
 }
 

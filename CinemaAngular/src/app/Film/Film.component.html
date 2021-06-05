@@ -19,7 +19,7 @@
       </div>
     </div>
     <div>
-      <button type="button" class="btn btn-success">save</button>
+
       <img [src]="movieData.imageUrl">
       <h1>{{ movieData.title }}</h1>
       <p>{{ movieData.description }}</p>
@@ -32,15 +32,54 @@
 
 
 
+  <div class="container">
+    <h1>films dans la BDD locale</h1>
+
+    <div class="col-4" class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Film</th>
+            <th>Description</th>
+            <th>Poster</th>
+            <th>Horaires</th>
+            <th>panier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of films;let i = index">
+            <td><strong>{{ film.title }}</strong></td>
+            <td>{{film.description}}</td>
+
+            <td> <img [src]="film.urlPoster" /></td>
+            <td>{{film.duration}} {{i}} </td>
+            <td><button type="button" class="btn btn-danger" (click)="deletefilm(i)">supprimer</button></td>
+
+          </tr>
+
+
+      </table>
+    </div>
+  </div>
+
+
+
+  <div class="border-top my-3"></div>
+
+  <div class="container" class="border-top my-3">
+    <div class="row">
+      <div class="col">
+        <div class="container">
+          <h1 class="col"> films A ajouter</h1>
+        </div>
+      </div>
+    </div>
 
 
 
 
 
 
-
-  < <div class="container">
-    <h1>Tous les films</h1>
 
     <div class="col-4" class="row">
       <table class="table table-striped">
@@ -64,36 +103,13 @@
 
 
             <td><button type="button" class="btn btn-success" (click)="callSave(movie)">Ajouter</button></td>
-
+            <td><button type="button" class="btn btn-danger" (click)="deletefilm(i)">supprimer</button></td>
           </tr>
 
 
       </table>
-      <!--  <table class="table table-striped">
-        <thead>
 
-          <tr>
-            <th>Film</th>
-            <th>Description</th>
-            <th>Poster</th>
-            <th>Horaires</th>
-            <th>panier</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let film of films;let i = index">
-            <td><strong>{{ film.title }}</strong></td>
-            <td>{{ film.imageUrl}}</td>
-
-            <td> <img [src]=" film.imageUrl" /></td>
-            <td>{{ film.description}}</td>
-            <td><button type="button" class="btn btn-success">Ajouter</button></td>
-
-          </tr>
-
-
-      </table>-->
 
     </div>
 
-</div>
+  </div>

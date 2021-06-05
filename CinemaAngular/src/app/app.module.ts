@@ -16,7 +16,9 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormbookingComponent } from './formbooking/formbooking.component';
 import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
-import { HTTP } from '@ionic-native/http/ngx';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'plan', component: PlanComponent },
@@ -44,6 +46,7 @@ const appRoutes = [
     SignupFormComponent,
     FormbookingComponent,
     BookingrecapitulativeComponent
+
   ],
 
 
@@ -53,8 +56,9 @@ const appRoutes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+    , NgbModule
   ],
-  providers: [HTTP],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,5 +38,10 @@ export class ListeComponent implements OnInit {
   ngOnInit() {
     this.reloadData();
   }
+  deletefilm(idk: number) {
+
+    this.filmService.delete(idk).subscribe();
+    console.log('index', idk)
+  }
 
 }
