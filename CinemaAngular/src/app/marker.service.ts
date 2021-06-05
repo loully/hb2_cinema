@@ -15,16 +15,14 @@ export class MarkerService {
     return 20 * (val / maxVal);
   }
 
- makeCapitalMarkers(map: L.map): L.Marker { 
+  makeCapitalMarkers(map: L.map): L.Marker {
     this.http.get(this.capitals).subscribe((res: any) => {
       for (const c of res.features) {
         const lon = c.geometry.coordinates[0];
         const lat = c.geometry.coordinates[1];
         console.log('lon', lon);
         console.log('lat', lat);
-        // const marker = L.marker([47.19195, -1.52945]);
 
-        // marker.addTo(map);
       }
     });
 
@@ -33,7 +31,7 @@ export class MarkerService {
     marker.addTo(map);
   }
 
- makeCapitalCircleMarkers(map: L.map): void {
+  makeCapitalCircleMarkers(map: L.map): void {
     this.http.get(this.capitals).subscribe((res: any) => {
 
       const maxPop = Math.max(...res.features.map(x => x.properties.population), 0);

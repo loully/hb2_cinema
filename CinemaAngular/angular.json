@@ -29,14 +29,14 @@
                                 "glob": "**/*",
                                 "input": "node_modules/leaflet/dist/images/",
                                 "output": "./assets"
-                              }  
+                              }
                         ],
                         "styles": [
-<<<<<<< HEAD
+
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
-=======
+
                             "node_modules/leaflet/dist/leaflet.css",
->>>>>>> 7c39cfe29055d9dd43eea75b68771f1c92c5f813
+
                             "node_modules/bootstrap/dist/css/bootstrap.css",
                             "src/styles.css"
                         ],
