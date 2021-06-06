@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import fr.hb2.cinemaproject.cinemaapplication.dao.SessionsDao;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 
 @Service
 public class SessionServiceImpl implements SessionService {
@@ -40,6 +41,12 @@ public class SessionServiceImpl implements SessionService {
 		Films film = filmService.getById(id);
 		return sessionDAO.findByFilm(film);
 		
+	}
+
+	@Override
+	public Sessions getByFilmAndShedules(Films film, Shedules shedule) {
+		sessionDAO.findByFilmAndShedules(film,shedule);
+		return null;
 	}
 	
 }

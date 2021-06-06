@@ -20,12 +20,12 @@
         <h5>Horaire :</h5>
         <h3>{{ dataSession?.sessionItem?.shedules?.day_date | json }} {{ dataSession?.sessionItem?.shedules?.start_time | json }}</h3><!--Schedule-->
         <h5>Nombre de places réservées :</h5>
-        <p>{{ dataSession?.numberSeats }}</p><!--NumberOfSeats-->
+        <p>{{ dataSession?.numberSeats | json }}</p><!--NumberOfSeats-->
         <h4>Prix de la réservation :</h4>
-        <p>{{ dataSession?.price }} €</p><!--Total price-->
+        <p>{{ dataSession?.price | json  }} €</p><!--Total price-->
 
         <button (click)="OnClickModify()"> Modifier</button>
-        <button type="submit"> Valider</button>
+        <button type="submit" (click)="OnClickValidate()"> Valider</button>
 
       
     </div>

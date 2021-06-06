@@ -1,4 +1,5 @@
 export class Prices{
 
-    constructor(public id: number ){}
+    constructor(public id?: number,
+        public value?: number){}
 }

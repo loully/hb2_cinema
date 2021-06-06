@@ -11,9 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Reservations;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Rooms;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
@@ -52,6 +56,18 @@ public class SessionController {
 	@GetMapping("/REST/session/film/{id}")
 	public List<Sessions> getByFilm(@PathVariable("id") Long id) {
 		return sessionService.getByFilm(id);
+	}
+	
+//	@PostMapping("/REST/session")
+//	public Sessions create(@RequestBody Sessions session) {
+//		sessionService.create(session);
+//		return session;
+//	}
+	
+	@GetMapping("/REST/session/film/schedule")
+	public Sessions getByFilm(@RequestParam("film") Films film,
+			@RequestParam("schedule") Shedules shedules) {
+		return sessionService.getByFilmAndShedules(film, shedules);
 	}
 	
 }

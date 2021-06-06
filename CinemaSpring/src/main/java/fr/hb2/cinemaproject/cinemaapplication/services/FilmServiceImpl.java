@@ -48,7 +48,8 @@ public class FilmServiceImpl implements FilmService {
 	@Override
 	public Long getIdByTitle(String title) {
 		Films film = (Films) filmDAO.findByTitle(title);
-		Long idFilm = film.getIdFilm();
+		Long idFilm;
+		idFilm = film.getIdFilm();
 		return idFilm;
 	}
 	

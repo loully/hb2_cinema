@@ -65,7 +65,6 @@ const appRoutes = [
   ],
 
   providers: [
-
     MarkerService
   ],
 

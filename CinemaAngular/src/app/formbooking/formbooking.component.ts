@@ -78,7 +78,7 @@ export class FormbookingComponent implements OnInit {
     this.booking.mail = this.mail;
     this.booking.film = this.film;
     this.booking.sessionItem = this.allsessions;
-    console.log(" ONCLICK : object session registred",this.booking.shedules);
+    console.log(" ONCLICK : object session registred",this.booking.sessionItem);
     this.booking.rooms = this.rooms;
     this.booking.numberSeats = this.numberSeats;
     this.booking.price = this.numberSeats * 5;

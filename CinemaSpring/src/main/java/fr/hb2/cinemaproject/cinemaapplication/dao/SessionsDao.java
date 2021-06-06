@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface SessionsDao extends JpaRepository<Sessions, Long> {
 
 	public List<Sessions> findByFilm(Films film);
+
+	public Sessions findByFilmAndShedules(Films film, Shedules shedule);
 
 
 }

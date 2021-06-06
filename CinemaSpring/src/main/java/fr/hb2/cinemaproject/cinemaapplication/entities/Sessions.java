@@ -29,8 +29,8 @@ public class Sessions {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "sessions")
+	
+	@OneToMany(targetEntity=Reservations.class,mappedBy = "sessions")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Reservations> reservations;
 

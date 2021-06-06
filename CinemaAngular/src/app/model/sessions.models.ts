@@ -4,7 +4,8 @@ import { Shedules } from "src/app/model/Shedules";
 
 export class Sessions {
 
-    constructor(public film:Films,public rooms:Rooms,public shedules:Shedules){
+    constructor(public id?:number,public film?:Films,public rooms?:Rooms,public shedules?:Shedules){
+        this.id = id;
         this.film = film;
         this.rooms = rooms;
         this.shedules = shedules;

@@ -10,17 +10,21 @@ import org.springframework.stereotype.Component;
 import fr.hb2.cinemaproject.cinemaapplication.dao.CategoriesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.FilmsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.PricesDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.ReservationsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.RoomsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.SessionsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.ShedulesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.TeamMembersDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.UsersDao;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Categories;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Prices;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Reservations;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Rooms;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 import fr.hb2.cinemaproject.cinemaapplication.entities.TeamMembers;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Users;
 import fr.hb2.cinemaproject.cinemaapplication.enums.Categorie;
 import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
 import fr.hb2.cinemaproject.cinemaapplication.enums.RoleMember;
@@ -50,10 +54,17 @@ public class DemoData {
 	
 	@Autowired
 	private PricesDao priceDAO;
+	
+	@Autowired
+	private UsersDao userDAO;
+	
+	@Autowired
+	private ReservationsDao reservationDAO;
 
 	@EventListener
 	public void appReady(ApplicationReadyEvent event) {
 		
+
 		// Fill Rooms
 		
 		  Rooms room1 = new Rooms(1,125,SensoryExperience.normal);
@@ -428,7 +439,17 @@ public class DemoData {
 		  sessionDAO.save(s62);
 		  sessionDAO.save(s63);
 		  sessionDAO.save(s64);
-		  		  
+		  
+		// Fill Users
+		  Users user1 = new Users("Mellay", "Jim", "jimmellay@orange.fr", LocalDate.parse("1997-06-25"), "5 rue des Yvelines Nantes 44190", Gender.homme, "je_suis_le_meilleur");
+		 
+		  userDAO.save(user1);
+		  
+		// Fill Reservations
+			
+		  Reservations reservation1 = new Reservations(1l,3l,LocalDate.parse("2021-06-01"),"EO41",s1, price1, user1);
+		  
+		  reservationDAO.save(reservation1);
 		 
 	}
 	
