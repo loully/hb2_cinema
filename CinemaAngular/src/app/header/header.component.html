@@ -1,42 +1,48 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light d-inline-flex ms-md-auto">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">HB2 cinema</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper-->
+        <div class="container-fluid">
+            <!-- Nabar brand-->
+            <a class="navbar-brand" href="#">HB2 cinema</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a routerLinkActive="active" class="nav-link" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/list">Tous les films</a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/cinema">Notre cinéma</a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/help">Nous suivre</a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/film">film </a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/booking">Réservation </a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link" routerLink="/recapbooking">Récapitulatif de réservation </a>
-          </li>
-          <li class="nav-item">
-            <a routerLinkActive="active" class="nav-link btn btn-outline-primary" routerLink="/signUp">S'identifier<img
-                src="assets/image/Login.png" class="app-img-login"></a>
-          </li>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- On the left-->
+                <ul class="navbar-nav mr-auto">
+                    <!-- <li class="nav-item active">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/">Home</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/list">Tous les films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/cinema">Notre cinéma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/help">Nous suivre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/film">film </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/booking">Réservation </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLinkActive="active" class="nav-link" routerLink="/recapbooking">Récapitulatif de réservation </a>
+                    </li>
+
+                </ul>
+                <a routerLinkActive="active" class="nav-link btn btn-outline-primary d-flex input-group w-auto" routerLink="/signUp ">S'identifier</a>
+            </div>
+        </div>
+    </nav>
 </header>

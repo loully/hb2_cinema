@@ -33,7 +33,6 @@ const appRoutes = [
   { path: 'signUp', component: SignupFormComponent },
   { path: 'booking', component: FormbookingComponent },
   { path: 'recapbooking', component: BookingrecapitulativeComponent },
-
   { path: 'login', component: LoginComponent },
   { path: 'listuser', component: AfficheUserComponent }
 ]
