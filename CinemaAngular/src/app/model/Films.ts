@@ -8,7 +8,7 @@ export class Films {
 
 
 
-  constructor(public id?: number,
+  constructor(public idFilm?: number,
     public title?: string,
     public languageFilm?: string,
     public duration?: number,

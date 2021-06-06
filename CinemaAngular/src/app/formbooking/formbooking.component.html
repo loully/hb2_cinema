@@ -1,39 +1,76 @@
- Toutes les séances sont ici :
-<div *ngFor="let seance of sessions">
+<!-- Toutes les séances sont ici :
+
+
+ <div *ngFor="let seance of sessions">
     <p>Séance : {{seance.id}}</p>
     <p>Film : {{seance.films}}</p>
     <p> Séances : {{seance.schedules}}</p>
-</div>
-
+</div> -->
 
 <form>
     <div class="form-row">
-        <div class="col-7">
+        <div class='col-7'>
+            <label for="lastName" class="form-label">Nom :</label>
+            <input type="text"  required [(ngModel)]="lastName" name="lastName" />
+
+        </div>
+        <div class='col'>
+            <label for="firstName" class="form-label">Prénom :</label>
+            <input type="text" [(ngModel)]="firstName" name="firstName" />
+        </div>
+        <div class='col'>
+            <label for="mail" class="form-label">Mail :</label>
+            <input type="text" [(ngModel)]="mail" name="mail" />
+        </div>
+        <div class="col">
             <label for="filmName" class="form-label">Nom du film</label>
-            <select class="form-select" id="filmName">
-                <option selected>Sélectionnez le film</option>
-                <option value="1">Soul</option>
-                <option value="2">Toy Story 4</option>
-                <option value="3">En avant</option>
-                <option value="4">Némo</option>
+            <select class="form-control"  (change)="checkSelected()" [(ngModel)]="film" id="filmName"
+                name="filmName">
+                <option *ngFor="let item of films" [value]="item.title">{{ item.title}}</option>
+                <!-- <option value="Soul">Soul</option>
+                <option value="Toy Story 4">Toy Story 4</option>
+                <option value="En avant">En avant</option>
+                <option value="Némo">Némo</option> -->
             </select>
         </div>
+        <!--<h1>Film sélectionné : {{ film }}</h1>-->
+        
+        <!-- <p>HERE's the list of sessions !</p> -->
+
+        <!-- <h2>Film reçu par le parent : {{ film }}</h2> -->
         <div class="col">
-            <label for="filmSchedule" class="form-label">Horaire</label>
-            <select class="form-select" id="filmSchedule">
+            <label for="filmSchedule" class="form-label">Date et horaire de la séance :</label>
+            <select class="form-select" [(ngModel)]="allsessions" id="filmSchedule" name="allsessions" >
+                <option *ngFor="let sess of sessions" [ngValue]="sess">{{ sess?.shedules.day_date}} {{sess?.shedules?.start_time}}</option>
+                <!-- <option selected>Sélectionnez l'horaire</option>
+        <option value="10:30">10:30</option>
+        <option value="14:00">14:00</option>
+        <option value="17:00">17:00</option>
+        <option value="20:00">20:00</option> -->
+            </select>
+            <!-- <div class="col">
+            <label for="filmSchedule" class="form-label">Date et horaire de la séance :</label>
+            <select class="form-select" [(ngModel)]="shedules" id="filmSchedule" [ngModelOptions]="{standalone:true}">
+                <option *ngFor="let item of schedules" [value]="item">{{ item?.day_date}} {{item?.start_time}}</option>
                 <option selected>Sélectionnez l'horaire</option>
-                <option value="1">10:30</option>
-                <option value="2">14:00</option>
-                <option value="3">17:00</option>
-                <option value="4">20:00</option>
+                <option value="10:30">10:30</option>
+                <option value="14:00">14:00</option>
+                <option value="17:00">17:00</option>
+                <option value="20:00">20:00</option>
             </select>
+            
+        </div> -->
+<!-- <h2>{{ allsessions | json}}</h2> -->
+<!--<h2>{{ sessions | json}}</h2>--> 
+            <div class="col">
+                <label for="numberSeats" class="form-label">Nombre de places réservées</label>
+                <input type="number" [(ngModel)]="numberSeats" class="form-control" id="numberSeats"
+                    placeholder="Nombre de places" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="col">
+                <button (click)="onClick()" class="btn btn-primary m-2">Réserver</button>
+            </div>
         </div>
-        <div class="col">
-            <label for="numberSeats" class="form-label">Nombre de places réservées</label>
-            <input type="number" class="form-control" id="numberSeats" placeholder="Nombre de places">
-        </div>
-        <div class="col">
-            <button type="submit" class="btn btn-primary m-2">Réserver</button>
-        </div>
-    </div>
-</form>
+
+
+<app-bookingrecapitulative [dataSession]="dataSession" (newBooleanEvent)="callbackChild($event)" [hidden]="isNotFinished"></app-bookingrecapitulative>

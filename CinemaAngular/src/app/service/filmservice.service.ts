@@ -33,5 +33,10 @@ export class FilmserviceService {
     let paramid = id;
     return this.http.delete<Films>(this.filmUrlde + id);
   }
+
+  public getIdByTitle(titleFilm: string): Observable<number> {
+    return this.http.get<number>(this.filmUrl + '/search/' + titleFilm);
+  }
+
 }
 

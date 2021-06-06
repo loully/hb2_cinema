@@ -56,5 +56,6 @@ export class SignupFormComponent {
       console.log(data);
       alert('SUCCESS!! Bien Enregister :-)\n\n');
     });
+
   }
 }

@@ -49,4 +49,9 @@ public class SessionController {
 		return sessionService.getAll();
 	}
 	
+	@GetMapping("/REST/session/film/{id}")
+	public List<Sessions> getByFilm(@PathVariable("id") Long id) {
+		return sessionService.getByFilm(id);
+	}
+	
 }

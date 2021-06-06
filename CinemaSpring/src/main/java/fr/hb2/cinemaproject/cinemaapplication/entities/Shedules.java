@@ -27,7 +27,7 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 public class Shedules {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Shedules {
 	private LocalTime start_time;
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalTime end_time;
-	@JsonIgnore
+	
 	@OneToMany(mappedBy="shedules",cascade = CascadeType.ALL)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Sessions> sessions;
@@ -57,5 +57,13 @@ public class Shedules {
 		this.start_time = start_time;
 		this.end_time = end_time;
 	}
+
+	@Override
+	public String toString() {
+		return "Shedules [id=" + id + ", day_date=" + day_date + ", start_time=" + start_time + ", end_time=" + end_time
+				+ "]";
+	}
+	
+	
 
 }

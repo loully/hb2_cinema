@@ -39,5 +39,6 @@ public interface FilmService {
 	 * retrieving a list of all movies
 	 * @param movie
 	 */
+	public Long getIdByTitle(String title);
 
 }

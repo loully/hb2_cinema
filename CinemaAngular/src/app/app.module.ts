@@ -17,14 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormbookingComponent } from './formbooking/formbooking.component';
-import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
-
-
+import { BookingrecapitulativeComponent } from './formbooking/bookingrecapitulative/bookingrecapitulative.component';
 import { HTTP } from '@ionic-native/http/ngx';
 import { LoginComponent } from './Login/Login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AfficheUserComponent } from './afficheUser/afficheUser.component';
-
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -58,8 +55,7 @@ const appRoutes = [
     LoginComponent,
     AfficheUserComponent
   ],
-
-
+  
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),

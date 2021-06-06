@@ -9,12 +9,14 @@ import org.springframework.stereotype.Component;
 
 import fr.hb2.cinemaproject.cinemaapplication.dao.CategoriesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.FilmsDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.PricesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.RoomsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.SessionsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.ShedulesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.TeamMembersDao;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Categories;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Prices;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Rooms;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
@@ -45,6 +47,9 @@ public class DemoData {
 	
 	@Autowired
 	private SessionsDao sessionDAO;
+	
+	@Autowired
+	private PricesDao priceDAO;
 
 	@EventListener
 	public void appReady(ApplicationReadyEvent event) {
@@ -63,6 +68,12 @@ public class DemoData {
 		  roomsDAO.save(room4); 
 		  roomsDAO.save(room5);
 		 
+		  
+		//Fill Prices
+		  Prices price1 = new Prices(1l, 5);
+		  
+		  priceDAO.save(price1);
+		  
 		//Fill Categories
 		
 		  Categories cat_animation = new Categories(1,Categorie.animation); 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="logo">Create a new account!</div>
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form form-register">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit(); profileForm.reset()" class="form form-register">
     <div class="container register-form">
       <div class="form">
         <div class="note">
@@ -36,7 +36,7 @@
                 <label>
                   Date de naissanse:
 
-                  <input type="text" formControlName="dateOfBirth" class="form-control"
+                  <input type="date" formControlName="dateOfBirth" class="form-control"
                     [class.is-invalid]="profileForm.get('dateOfBirth').invalid && profileForm.get('dateOfBirth').touched"
                     placeholder="votre  date de naissanse *" value="" />
                 </label>
@@ -54,7 +54,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-primary" type="submit" >Submit</button>
         </div>
       </div>
     </div>

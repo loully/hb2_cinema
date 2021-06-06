@@ -63,4 +63,8 @@ public class FilmController {
 		return filmService.getAll();
 	}
 
+	@GetMapping("/REST/film/search/{title}")
+	public Long getIdByTitle(@PathVariable("title") String title) {
+		return filmService.getIdByTitle(title);
+	}
 }
