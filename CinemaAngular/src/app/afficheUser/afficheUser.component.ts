@@ -28,7 +28,10 @@ export class AfficheUserComponent implements OnInit {
     this.userService.delete(idk).subscribe();
     console.log('index', idk)
   }
+  logout() {
 
+    window.location.reload();
+  }
 }
 
 

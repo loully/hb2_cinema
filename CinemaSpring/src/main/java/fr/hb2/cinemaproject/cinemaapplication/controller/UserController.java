@@ -55,10 +55,27 @@ public class UserController {
 		return userService.getById(id);
 	}
 	
+	
 	@GetMapping("/REST/utilisateur")
 	public List<Users> getAll() {
 		return userService.getAll();
 	}
 	
+	@GetMapping("/api/auth/signin")
+	public List<Users> getAllauth() {
+		return userService.getAllauth();
+	}
+	@PostMapping("/api/auth/signin")
+	public Users createUserauth (@RequestBody Users user) {
+		userService.create(user);
+		return user;
+		
+	}
+	@PostMapping("/api/auth/signup")
+	public Users createUserauthup (@RequestBody Users user) {
+		userService.create(user);
+		return user;
+		
+	}
 
 }

@@ -1,3 +1,8 @@
+<div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
 <!-- SLIDER SIMPLE BY HTML-->
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="container-fluid">
@@ -84,11 +89,35 @@
   <!--Section pour le bouton rechercher-->
   <section>
 
-    <!--Rechercher-->
-    <div>
-      <label for="rechercher sur le site"></label>
-      <input type="rechercher" id="rechercher">
-      <button>Rechercher</button>
+    <div class="container" class="p-3 mb-2 bg-info text-dark">
+      <form class="form-inline" action="/recherche/" method="get">
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <select id="oCategorie" name="oCategorie" class="form-control">
+              <option selected="selected" value="0">Catégorie</option>
+              <option value="1">animation</option>
+              <option value="1">famille</option>
+              <option value="1">fantastique</option>
+              <option value="1">comédie</option>
+              <option value="1">aventure</option>
+            </select>
+          </div>
+          <input id="oSaisie" name="oSaisie" type="text" [(ngModel)]="searchTitle" class="form-control"
+            aria-label="Saisie de mots clés" required="required">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" color="light" (click)="searchMovie()">Recherche</button>
+          </div>
+        </div>
+        <div>
+
+          <img [src]="movieData.imageUrl">
+          <h1>{{ movieData.title }}</h1>
+          <p>{{ movieData.description }}</p>
+        </div>
+
+      </form>
+
     </div>
   </section>
 
@@ -98,11 +127,13 @@
       <h2>À l'affiche</h2>
     </div>
     <div>
-      <video src="video1.mp4"
-        poster="https://upload.wikimedia.org/wikipedia/en/9/98/Coco_%282017_film%29_poster.jpg"></video>
-      <video src="video2.mp4" poster="film2.jpg"></video>
-      <video src="video3.mp4" poster="film3.jpg"></video>
-      <video src="video4.mp4" poster="film4.jpg"></video>
+      <div *ngFor="let film of films;let i = index">
+        <span> <img [src]="film.urlPoster" /></span>
+        <h3><strong>{{ film.title }}</strong></h3>
+        <h5>{{film.description}}</h5>
+
+
+      </div>
     </div>
   </div>
   <section>

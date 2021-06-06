@@ -22,8 +22,15 @@ import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingr
 
 import { HTTP } from '@ionic-native/http/ngx';
 import { LoginComponent } from './Login/Login.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AfficheUserComponent } from './afficheUser/afficheUser.component';
+import { ProfileComponent } from './Profile/Profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+
+import { RegisterComponent } from './register/register.component';
+
 
 
 const appRoutes = [
@@ -38,8 +45,16 @@ const appRoutes = [
   { path: 'recapbooking', component: BookingrecapitulativeComponent },
 
   { path: 'login', component: LoginComponent },
-  { path: 'listuser', component: AfficheUserComponent }
-]
+  { path: 'listuser', component: AfficheUserComponent },
+  { path: 'home', component: HomeComponent },
+
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'admin', component: BoardAdminComponent },
+
+];
 
 @NgModule({
   declarations: [
@@ -56,7 +71,12 @@ const appRoutes = [
     FormbookingComponent,
     BookingrecapitulativeComponent,
     LoginComponent,
-    AfficheUserComponent
+    AfficheUserComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardUserComponent,
+    BoardModeratorComponent,
+    RegisterComponent
   ],
 
 

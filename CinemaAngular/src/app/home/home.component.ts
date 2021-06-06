@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Userservice } from '../service/userservice';
 import { FilmserviceService } from "../service/filmservice.service";
 import { Films } from '../model/Films';
 @Component({
@@ -10,8 +11,11 @@ import { Films } from '../model/Films';
 })
 export class HomeComponent implements OnInit {
   films: Films[] = [];
-
-  constructor(private filmService: FilmserviceService) { }
+  content: string;
+  readAPI(URL: string): Observable<any> {
+    return this.http.get<any>(URL);
+  }
+  constructor(private http: HttpClient, private filmService: FilmserviceService, private userService: Userservice) { }
 
 
 
@@ -26,9 +30,35 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.reloadData();
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
 
   images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  searchMovie() {
+    console.log('recherche du film ', encodeURIComponent(this.searchTitle).trim());
+    const search = encodeURIComponent(this.searchTitle).trim();
+    this.movieApiUrl = 'http://localhost:8080/REST/utilisateur' + search;
+    this.readAPI(this.movieApiUrl)
+      .subscribe((data) => {
+        console.log('recheche movie ', data);
+        this.movieData = data.Search;
+      });
+  }
+  movieApiUrl = '';
+  searchTitle = '';
+  movieData = {
+    title: '',
+    description: '',
+    imageUrl: ''
+  };
 
 
 

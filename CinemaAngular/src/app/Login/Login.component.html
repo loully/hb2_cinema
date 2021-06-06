@@ -1,41 +1,52 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
-</nav>
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="assets/image/cinemaphoto.jpg" class=" profile-img-card" />
 
-<div class="col-md-6 offset-md-3 mt-5">
-  <div class="alert alert-info">
-    Username: test<br />
-    Password: test
-  </div>
-  <div class="card">
-    <h4 class="card-header">HB2cinema Authentication </h4>
-    <div class="card-body">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="mail">Username</label>
-          <input type="text" formControlName="mail" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
-          <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
-            <div *ngIf="f.mail.errors.required">mail is required</div>
+
+
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="mail">email</label>
+        <input type="text" class="form-control" name="mail" [(ngModel)]="form.mail" required #mail="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && mail.invalid">
+          l'email est obligatoire !
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Le mot de passe doit être au moins de 6 caractères
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" formControlName="password" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-          </div>
-        </div>
-        <button [disabled]="loading" class="btn btn-primary">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
           Login
         </button>
-        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-      </form>
+      </div>
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
     </div>
+    <nav>
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>

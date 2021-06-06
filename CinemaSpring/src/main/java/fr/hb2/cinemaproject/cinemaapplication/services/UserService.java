@@ -38,5 +38,9 @@ public interface UserService {
 	 * retrieving a list of all Users
 	 * @param User
 	 */
-
+	public List<Users> getAllauth();
+	/**
+	 * retrieving a list of all Users
+	 * @param User
+	 */
 }

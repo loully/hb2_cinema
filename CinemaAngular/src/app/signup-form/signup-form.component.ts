@@ -19,6 +19,9 @@ export class SignupFormComponent {
   constructor(private userservice: Userservice) { }
   title = 'validation des formes angulaires';
   user: Users = new Users();
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   dateValidator(c: AbstractControl): { [key: string]: boolean } {
     let value = c.value;
     if (value && typeof value === 'string') {
@@ -54,7 +57,14 @@ export class SignupFormComponent {
     console.warn(this.profileForm.value);
     this.userservice.save(this.profileForm.value).subscribe((data) => {
       console.log(data);
+      console.log(data);
+      this.isSuccessful = true;
+      this.isSignUpFailed = false;
       alert('SUCCESS!! Bien Enregister :-)\n\n');
-    });
+    }, err => {
+      this.errorMessage = err.error.message;
+      this.isSignUpFailed = true;
+    }
+    );
   }
 }
