@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Base de données des utilisateurs </h1>
+
+  <div class="col-4" class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>identifiants</th>
+          <th>nom</th>
+          <th>prenom</th>
+          <th>email</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users;let i = index">
+          <td><strong>{{ user.id }}</strong></td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}} {{i}} </td>
+
+          <td>{{user.mail}} {{i}} </td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteuser(i)">supprimer</button></td>
+
+        </tr>
+
+
+    </table>
+  </div>
+</div>
+
+
+
+<div class="border-top my-3"></div>
+
+<div class="container" class="border-top my-3">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+
+      </div>
+    </div>
+  </div>
+</div>

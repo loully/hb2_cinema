@@ -72,17 +72,16 @@ export class FilmComponent implements OnInit {
     film.languageFilm = movie.Type;
     film.description = movie.Year;
     film.urlPoster = movie.Poster;
-    this.filmService.save(film).subscribe(
-      data => {
+    this.filmService.save(film).subscribe(message => {
 
-        console.log(data);
-        console.log('movie show', movie);
-
-      }
-    );
+      alert('SUCCESS!! film ajouter a la liste :-)\n\n');
+    });
   }
   deletefilm(id) {
 
-    this.filmService.delete(id).subscribe();
+    this.filmService.delete(id).subscribe(message => {
+
+      alert('SUCCESS!! film bien supprimer de la liste :-)\n\n');
+    });
   }
 }

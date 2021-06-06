@@ -19,7 +19,11 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } 
 import { FormbookingComponent } from './formbooking/formbooking.component';
 import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
 
+
 import { HTTP } from '@ionic-native/http/ngx';
+import { LoginComponent } from './Login/Login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AfficheUserComponent } from './afficheUser/afficheUser.component';
 
 
 const appRoutes = [
@@ -33,6 +37,8 @@ const appRoutes = [
   { path: 'booking', component: FormbookingComponent },
   { path: 'recapbooking', component: BookingrecapitulativeComponent },
 
+  { path: 'login', component: LoginComponent },
+  { path: 'listuser', component: AfficheUserComponent }
 ]
 
 @NgModule({
@@ -48,8 +54,9 @@ const appRoutes = [
     FilmComponent,
     SignupFormComponent,
     FormbookingComponent,
-    BookingrecapitulativeComponent
-
+    BookingrecapitulativeComponent,
+    LoginComponent,
+    AfficheUserComponent
   ],
 
 
