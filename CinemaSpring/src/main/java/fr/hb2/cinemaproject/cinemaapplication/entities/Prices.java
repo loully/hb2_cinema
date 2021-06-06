@@ -29,8 +29,15 @@ public class Prices {
 	// @OneToMany(mappedBy="prices")
 	// @JsonProperty(access=Access.WRITE_ONLY)
 	// private Collection<Reservations> reservations;
+	private int value;
 	@JsonIgnore
 	@OneToMany(targetEntity = Reservations.class, mappedBy = "prices")
 	private List<Reservations> teamMembers = new ArrayList<>();
+	public Prices(Long id, int value) {
+		super();
+		this.id = id;
+		this.value = value;
+	}
 
+	
 }

@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Prices;
 import fr.hb2.cinemaproject.cinemaapplication.services.PriceService;
 
@@ -26,6 +29,12 @@ public class PriceController {
 	@GetMapping("/REST/price")
 	public List<Prices> getAll() {
 		return priceService.getAll();
+	}
+	
+	@PostMapping("/REST/price")
+	public Prices createPrice (@RequestBody Prices price) {
+		priceService.create(price);
+		return price;
 	}
 	
 

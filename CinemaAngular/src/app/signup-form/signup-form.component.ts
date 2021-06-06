@@ -61,10 +61,15 @@ export class SignupFormComponent {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
       alert('SUCCESS!! Bien Enregister :-)\n\n');
+<<<<<<< HEAD
     }, err => {
       this.errorMessage = err.error.message;
       this.isSignUpFailed = true;
     }
     );
+=======
+    });
+
+>>>>>>> b25f057318ed65795fde0b6082debc439dd02629
   }
 }

@@ -3,7 +3,9 @@ package fr.hb2.cinemaproject.cinemaapplication.services;
 import java.util.List;
 import java.util.Optional;
 
+import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 
 public interface SessionService {
 
@@ -25,4 +27,8 @@ public interface SessionService {
 	 * @return
 	 */
 	public Sessions getById(Long id);
+	
+	public List<Sessions> getByFilm (Long id);
+	
+	public Sessions getByFilmAndShedules(Films film, Shedules shedule);
 }

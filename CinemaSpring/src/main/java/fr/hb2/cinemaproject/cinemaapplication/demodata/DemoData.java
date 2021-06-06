@@ -9,16 +9,22 @@ import org.springframework.stereotype.Component;
 
 import fr.hb2.cinemaproject.cinemaapplication.dao.CategoriesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.FilmsDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.PricesDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.ReservationsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.RoomsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.SessionsDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.ShedulesDao;
 import fr.hb2.cinemaproject.cinemaapplication.dao.TeamMembersDao;
+import fr.hb2.cinemaproject.cinemaapplication.dao.UsersDao;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Categories;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Prices;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Reservations;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Rooms;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 import fr.hb2.cinemaproject.cinemaapplication.entities.TeamMembers;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Users;
 import fr.hb2.cinemaproject.cinemaapplication.enums.Categorie;
 import fr.hb2.cinemaproject.cinemaapplication.enums.Gender;
 import fr.hb2.cinemaproject.cinemaapplication.enums.RoleMember;
@@ -45,10 +51,20 @@ public class DemoData {
 	
 	@Autowired
 	private SessionsDao sessionDAO;
+	
+	@Autowired
+	private PricesDao priceDAO;
+	
+	@Autowired
+	private UsersDao userDAO;
+	
+	@Autowired
+	private ReservationsDao reservationDAO;
 
 	@EventListener
 	public void appReady(ApplicationReadyEvent event) {
 		
+
 		// Fill Rooms
 		
 		  Rooms room1 = new Rooms(1,125,SensoryExperience.normal);
@@ -63,6 +79,12 @@ public class DemoData {
 		  roomsDAO.save(room4); 
 		  roomsDAO.save(room5);
 		 
+		  
+		//Fill Prices
+		  Prices price1 = new Prices(1l, 5);
+		  
+		  priceDAO.save(price1);
+		  
 		//Fill Categories
 		
 		  Categories cat_animation = new Categories(1,Categorie.animation); 
@@ -156,7 +178,7 @@ public class DemoData {
 		  Films dory = new Films(7l,"Le monde de Dory","fr",LocalTime.parse("01:35:00"),LocalDate.parse("2016-06-22"),"Dory, le poisson chirurgien bleu amnésique, mène une existence heureuse dans les récifs avec ses amis Nemo et Marin.","https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/14/16/21/478890.jpg",cat_aventure);
 		  Films arlo = new Films(8l,"Le Voyage d'Arlo", "fr", LocalTime.parse("01:40:00"),LocalDate.parse("2015-11-25"), "Et si la catastrophe cataclysmique qui a bouleversé la Terre et provoqué l'extinction des dinosaures n'avait jamais eu lieu ? ","https://fr.web.img3.acsta.net/c_310_420/pictures/15/10/07/09/50/031416.jpg",cat_aventure);
 		  Films viceversa = new Films(9l,"Vice-Versa","fr",LocalTime.parse("01:42:00"),LocalDate.parse("2015-06-17"),"Au Quartier Général, le centre de contrôle situé dans la tête de la petite Riley, 11 ans, cinq émotions sont au travail. Lorsque la famille de Riley emménage dans une grande ville, avec tout ce que cela peut avoir d'effrayant.","https://fr.web.img3.acsta.net/c_310_420/pictures/15/04/16/13/58/571071.jpg",cat_famille);
-		  Films monstres = new Films(10l,"Monstres Academy","fr",LocalTime.parse("01:50:00"),LocalDate.parse("2013-07-10"),"Même quand il n'était qu'un tout petit monstre, Bob Razowski rêvait déjà de devenir une Terreur. Aujourd'hui, il est enfin en première année à la prestigieuse université Monstres Academy, où sont formées les meilleures Terreurs.","https://fr.web.img3.acsta.net/medias/nmedia/18/91/41/04/20484519.jpg",cat_fantastique);
+		  Films monstres = new Films(10l,"Monstres Academy","fr",LocalTime.parse("01:50:00"),LocalDate.parse("2013-07-10"),"Même quand il n'était qu'un tout petit monstre, Bob Razowski rêvait déjà de devenir une Terreur. Aujourd'hui, il est enfin en première année à la prestigieuse université Monstres Academy, où sont formées les meilleures Terreurs.","https://fr.web.img5.acsta.net/c_310_420/o_club300-310x420.png_0_se/medias/nmedia/18/91/41/04/20484519.jpg",cat_fantastique);
 
 		
 		// Fill TeamMembers
@@ -417,7 +439,17 @@ public class DemoData {
 		  sessionDAO.save(s62);
 		  sessionDAO.save(s63);
 		  sessionDAO.save(s64);
-		  		  
+		  
+		// Fill Users
+		  Users user1 = new Users("Mellay", "Jim", "jimmellay@orange.fr", LocalDate.parse("1997-06-25"), "5 rue des Yvelines Nantes 44190", Gender.homme, "je_suis_le_meilleur");
+		 
+		  userDAO.save(user1);
+		  
+		// Fill Reservations
+			
+		  Reservations reservation1 = new Reservations(1l,3l,LocalDate.parse("2021-06-01"),"EO41",s1, price1, user1);
+		  
+		  reservationDAO.save(reservation1);
 		 
 	}
 	

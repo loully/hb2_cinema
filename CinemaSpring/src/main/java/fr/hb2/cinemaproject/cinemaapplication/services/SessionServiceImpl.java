@@ -9,13 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.hb2.cinemaproject.cinemaapplication.dao.SessionsDao;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Films;
 import fr.hb2.cinemaproject.cinemaapplication.entities.Sessions;
+import fr.hb2.cinemaproject.cinemaapplication.entities.Shedules;
 
 @Service
 public class SessionServiceImpl implements SessionService {
 
 	@Autowired
 	SessionsDao sessionDAO;
+	@Autowired
+	FilmService filmService;
 	
 	@Transactional
 	public void create(Sessions session) {
@@ -30,6 +34,19 @@ public class SessionServiceImpl implements SessionService {
 	@Override
 	public Sessions getById(Long id) {
 		return sessionDAO.findById(id).orElse(null);
+	}
+	
+	@Override
+	public List<Sessions> getByFilm (Long id){
+		Films film = filmService.getById(id);
+		return sessionDAO.findByFilm(film);
+		
+	}
+
+	@Override
+	public Sessions getByFilmAndShedules(Films film, Shedules shedule) {
+		sessionDAO.findByFilmAndShedules(film,shedule);
+		return null;
 	}
 	
 }

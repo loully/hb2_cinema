@@ -1,7 +1,6 @@
 package fr.hb2.cinemaproject.cinemaapplication.entities;
 
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -9,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -41,11 +41,12 @@ public class Users {
     private String adress;
     private Gender gender;
     private String password;
-    @OneToMany(mappedBy="users")
+    @OneToMany(targetEntity=Reservations.class,mappedBy="users")
 	@JsonProperty(access=Access.WRITE_ONLY)
 	private Collection<Reservations> reservations;
     
     @ManyToOne
+    @JoinColumn
     private Roles role;
     
 	public Users(String lastName, String firstName, String mail, LocalDate dateOfBirth, String adress, Gender gender,

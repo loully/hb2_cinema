@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Session } from '../shared/models/sessions.models';
+import { Sessions } from '../model/sessions.models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,11 @@ export class SessionService {
     this.sessionUrl = 'http://localhost:8080/REST/session';
   }
 
-  public findAll():Observable<Session[]>{
-    return this.http.get<Session[]>(this.sessionUrl);
+  public findAll():Observable<Sessions[]>{
+    return this.http.get<Sessions[]>(this.sessionUrl);
+  }
+
+  public findByFilmId(idFilm: number):Observable<Sessions[]>{
+    return this.http.get<Sessions[]>(this.sessionUrl  + '/film/' + idFilm);
   }
 }

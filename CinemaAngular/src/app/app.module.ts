@@ -17,9 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormbookingComponent } from './formbooking/formbooking.component';
-import { BookingrecapitulativeComponent } from './bookingrecapitulative/bookingrecapitulative.component';
-
-
+import { BookingrecapitulativeComponent } from './formbooking/bookingrecapitulative/bookingrecapitulative.component';
 import { HTTP } from '@ionic-native/http/ngx';
 import { LoginComponent } from './Login/Login.component';
 
@@ -32,7 +30,6 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { RegisterComponent } from './register/register.component';
 
 
-
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'plan', component: PlanComponent },
@@ -43,7 +40,6 @@ const appRoutes = [
   { path: 'signUp', component: SignupFormComponent },
   { path: 'booking', component: FormbookingComponent },
   { path: 'recapbooking', component: BookingrecapitulativeComponent },
-
   { path: 'login', component: LoginComponent },
   { path: 'listuser', component: AfficheUserComponent },
   { path: 'home', component: HomeComponent },
@@ -69,7 +65,7 @@ const appRoutes = [
     FilmComponent,
     SignupFormComponent,
     FormbookingComponent,
-    BookingrecapitulativeComponent,
+
     LoginComponent,
     AfficheUserComponent,
     ProfileComponent,
@@ -78,7 +74,6 @@ const appRoutes = [
     BoardModeratorComponent,
     RegisterComponent
   ],
-
 
   imports: [
     BrowserModule,
@@ -90,7 +85,6 @@ const appRoutes = [
   ],
 
   providers: [
-
     MarkerService
   ],
 
