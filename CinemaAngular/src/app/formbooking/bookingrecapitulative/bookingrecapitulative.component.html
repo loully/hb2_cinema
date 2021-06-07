@@ -1,5 +1,3 @@
-
-
 <!--Booking recapitulative-->
 <div>
     <!--Personnal and session infos recapitulative-->
@@ -8,25 +6,29 @@
 
         <!-- <h2>{{ dataSession | json }}</h2> -->
         <h4>Réservation faite par : </h4>
-        <p>{{dataSession?.firstName}} {{dataSession?.lastName}}</p><!-- First name + last name-->
+        <p>{{dataSession?.firstName}} {{dataSession?.lastName}}</p>
+        <!-- First name + last name-->
         <h4>Votre mail : </h4>
         <p>{{dataSession?.mail}}</p>
         <!--Film-->
         <h5>Film : {{ dataSession?.film }}</h5>
-        
+
         <h5>Salle :</h5>
         <h3>{{ dataSession?.sessionItem?.rooms?.roomNumber | json }}</h3>
-        <p></p><!--Room-->
+        <p></p>
+        <!--Room-->
         <h5>Horaire :</h5>
-        <h3>{{ dataSession?.sessionItem?.shedules?.day_date | json }} {{ dataSession?.sessionItem?.shedules?.start_time | json }}</h3><!--Schedule-->
+        <h3>{{ dataSession?.sessionItem?.shedules?.day_date | json }} {{ dataSession?.sessionItem?.shedules?.start_time | json }}</h3>
+        <!--Schedule-->
         <h5>Nombre de places réservées :</h5>
-        <p>{{ dataSession?.numberSeats | json }}</p><!--NumberOfSeats-->
+        <p>{{ dataSession?.numberSeats | json }}</p>
+        <!--NumberOfSeats-->
         <h4>Prix de la réservation :</h4>
-        <p>{{ dataSession?.price | json  }} €</p><!--Total price-->
+        <p>{{ dataSession?.price | json }} €</p>
+        <!--Total price-->
 
         <button (click)="OnClickModify()"> Modifier</button>
         <button type="submit" (click)="OnClickValidate()"> Valider</button>
 
-      
     </div>
 </div>
